@@ -1,0 +1,69 @@
+extends layout 
+block content
+    .container-home
+        //- h2.automk Mirsevini në AutoMK
+        .foto-banner        
+            img(src="https://scontent.fskp4-2.fna.fbcdn.net/v/t39.30808-6/298460714_2344141982403765_1087725370916905389_n.jpg?_nc_cat=108&ccb=1-7&_nc_sid=8bfeb9&_nc_ohc=l94ZlgCLuewAX85Y785&_nc_ht=scontent.fskp4-2.fna&oh=00_AT8sPgYH03TzTmq9yMv5K8_c61x-YD1j2Kg3u5KQnFPg-A&oe=6309CA8D", alt="")
+        .foto-falas
+            a(href="/products/create")
+                img(src="https://scontent.fskp4-1.fna.fbcdn.net/v/t39.30808-6/297871500_2344141979070432_8078723704160247690_n.jpg?_nc_cat=103&ccb=1-7&_nc_sid=8bfeb9&_nc_ohc=TN8tuqB9KwMAX8uFonE&_nc_oc=AQnGmwlyBHrus8rIKURBzhims0sCVLdAQgdqioBh1yP6uheHnu3m2Eosf9Ix06MGNVs&tn=qxg4-94MVpqvRVmu&_nc_ht=scontent.fskp4-1.fna&oh=00_AT9dURvUyjwAEJgg2r_ZAlJIx0mjQinXuh5Cg6cJpMWzLg&oe=630A6966", alt="Kliko per te shitur veturen tende")
+
+
+    if isFeatured.length > 0
+        h1.most-visited Listimet më të vizituara
+        .featured-products 
+            each e in isFeatured 
+                .single-prod-card-featured 
+                    a(href="/products/"+e._id)     
+                        h3.product-name=e.name
+                    a(href="/products/"+e._id)
+                        img(src="/images/products/"+e.image, alt=e.name) 
+                    h4.price Cmimi : #{e.price} €
+                    h4.shitesi Shitësi : #{e.seller}
+                    h4.tel Tel : #{e.phone}
+                    //- h4.location Lokacioni : #{e.location} 
+ 
+
+    #sfc27jzcm8fk55n8cfhzm2c71getsa2cu6d.counter 
+      a(href="").number 
+        p.numberTxt Numri i vizitorëve 
+        img(src="https://counter9.stat.ovh/private/freecounterstat.php?c=27jzcm8fk55n8cfhzm2c71getsa2cu6d", alt="")
+
+
+  
+
+
+    //- if all.length > 0
+    //-   each u in all 
+    //-     h3 #{u.username}
+
+    footer.footer
+      .column.footer
+        h3.footer Rreth Nesh
+        p.footer Etnik Zeqiri
+        p.footer Nr tel : +389 76 224 065
+        p.footer Emaili personal : etnikz2002@gmail.com
+        p.footer Info Email : automk.info@gmail.com
+        p.footer Developed By : Etnik Zeqiri
+        p.footer 
+      .column.footer
+        h3.footer Produkte të tjera
+        ul.footer
+          li.footer
+            a.footer(href='https://kupivreki.netlify.app/' target="_blank") Kupi Vreki MK
+          //- li.footer
+          //- a.footer(href='#') link 2
+          //- li.footer
+          //-   a.footer(href='#') link 3
+          //- li.footer
+          //-   a.footer(href='#') link 4
+      .column.footer
+        h3.footer Dërgo një mesazh!
+        form.footer(action='')
+          input.footer(type='text' placeholder="Mesazhi juaj..." required)
+          button.footer(type='button') 
+             a.bardh(href=`mailto:etnikz2002@gmail.com`) Dërgo
+    .bottom.footer
+      p.footer.copyright &copy; copyright Etnik Zeqiri 2022
+    
+    

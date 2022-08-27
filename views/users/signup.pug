@@ -1,0 +1,24 @@
+extends ../layout 
+block content 
+    h2.regjistrohu Regjistrohu tani
+    .form-wrapper 
+        form(action="/users/register", method="post") 
+            .form-elem-login
+                label(for="username")  
+                input(type="text" name="username" placeholder="Emri dhe mbiemri juaj" required)
+            .form-elem-login
+                label(for="phone")  
+                input(type="text" name="phone" placeholder="Numri i telefonit" required)
+            .form-elem-login
+                label(for="email")  
+                input(type="email" name="email" placeholder="Emaili juaj" required)
+            .form-elem-login
+                label(for="password")  
+                input(type="password" name="password" placeholder="Passwordi juaj" required)
+            .form-elem-login-submit
+                input(type="submit" value="Regjistrohu")
+        br
+        a(href="/users/login") Jeni i  regjistruar? identifikohu ketu
+
+
+    

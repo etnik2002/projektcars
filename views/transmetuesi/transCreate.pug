@@ -1,0 +1,14 @@
+extends ../layout 
+block content 
+    h2= title
+    h1 krijo nje transmetues
+    .container 
+        .form-wrapper.create 
+            form(action="/trans", method="post") 
+                .form-elem-login.create
+                    label(for="lloji") Lloji i transmetuesit 
+                    br
+                    input(type="text" name="lloji" required placeholder="LLoji")
+                br
+                .form-elem-login-create-btn
+                    input(type="submit" value="Krijo")

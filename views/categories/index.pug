@@ -1,0 +1,8 @@
+extends ../layout 
+include ../mixins/CategoryCard
+block content 
+    .category-wrappers 
+        each category in categories
+            +CategoryCard(categories)
+            a(href="/categories/"+category._id) 
+            h2= category.catName

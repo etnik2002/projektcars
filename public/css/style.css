@@ -1,0 +1,565 @@
+body {
+  margin: 0;
+  padding: 0;
+}
+
+ul.nav-menu {
+  color: rgb(147, 147, 93);
+  background-color: #153e4d;
+  height: 100px;
+  font-size: x-large;
+  /* justify-content: space-between; */
+}
+ul.nav-menu img {
+  width: 100px;
+  height: 50%;
+  border-radius: 15px;
+}
+ul.nav-menu li a {
+  color: white;
+}
+ul.nav-menu li a:hover {
+  color: lime;
+}
+.flex-row {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 2%;
+}
+
+.flex-col {
+  display: flex;
+  flex-direction: col;
+  flex-wrap: wrap;
+  position: absolute;
+  left: 14%;
+}
+
+.form-wrapper {
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  bottom: 200px;
+  margin: 0 auto;
+  height: 200px;
+  position: relative;
+  top: 100px;
+}
+.link-navigim a {
+  margin: 0 auto;
+  position: relative;
+  left: 43%;
+  top: 180px;
+}
+.link-navigim a:hover {
+  margin: 0 auto;
+  position: relative;
+  left: 43%;
+  top: 180px;
+  color: black;
+}
+
+.regjistrohu {
+  text-align: center;
+}
+.form-elem-login input {
+  justify-content: center;
+  align-items: center;
+  padding: 5px;
+  width: 30%;
+  font-size: x-large;
+  height: 40px;
+  border-radius: 20px;
+}
+
+.form-elem-login-submit input {
+  margin-top: 10px;
+  background-color: yellow;
+  color: black;
+  border: none;
+  border-radius: 20px;
+  padding: 5px;
+  width: 10%;
+}
+.form-elem-login-krijo input {
+  background-color: blue;
+  color: white;
+  border: none;
+  border-radius: 20px;
+  padding: 5px;
+}
+.single-prod-card {
+  max-width: 360px;
+  margin: 5px;
+  padding: 10px;
+}
+.single-prod-card img {
+  position: relative;
+  /* width: 200%;
+  height: 300px;
+  left: -40%; */
+  width: 100%;
+  height: 200px;
+
+  opacity: 0.9;
+  margin: 0 auto;
+  text-align: center;
+  align-items: center;
+  align-content: center;
+  justify-content: center;
+  border-radius: 20px;
+}
+.nav-menu {
+  display: flex;
+  margin: 0 auto;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  background-color: bisque;
+}
+.nav-menu li {
+  list-style: none;
+  color: black;
+  text-decoration: none;
+  margin: 5px 10px;
+  padding: 5px 7px;
+  border-radius: 5px;
+}
+.nav-menu li:hover {
+  list-style: none;
+  color: lime;
+  text-decoration: none;
+  margin: 5px 10px;
+  padding: 5px 7px;
+  border-radius: 5px;
+}
+.nav-menu li a {
+  text-decoration: none;
+  color: black;
+}
+
+/* profile page styles */
+
+.user-products-list {
+  width: 35%;
+  margin: 0 auto;
+  justify-content: space-between;
+  display: block;
+}
+.user-products-list img {
+  width: 100%;
+}
+.each-product {
+  border-bottom: 2px solid black;
+}
+.each-product h2 {
+  color: blue;
+}
+.produktet-tuaja {
+  color: gray;
+  border-bottom: 2px solid gray;
+}
+
+/* single product page */
+
+.product-wrapper {
+  display: flex;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+h4.shitesi {
+  color: white;
+  background-color: rgb(90, 158, 158);
+  padding: 3px;
+  border-radius: 20px;
+  max-width: 100%;
+}
+
+h3.tel {
+  color: green;
+  border-bottom: 2px solid limegreen;
+}
+.single-prod-card h3.shitesi {
+  color: blue;
+}
+
+.single-prod-card h3.cmimi {
+  color: red;
+}
+
+.single-prod-card h3.pershkrimi {
+  color: black;
+  border-bottom: 1px solid black;
+}
+
+.product-wrapper-single {
+  width: 100%;
+  margin: 0 auto;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  position: relative;
+  display: flex;
+}
+
+.product-wrapper-single img:hover {
+  transition: 0.8s;
+  transform: scale(1.5);
+}
+
+.product-wrapper-single img:not(:hover) {
+  transition: 0.8s;
+  transform: scale(1);
+}
+
+h4.price {
+  color: white;
+  background-color: rgb(112, 126, 126);
+  padding: 3px;
+  border-radius: 20px;
+  max-width: 100%;
+}
+h3.product-name {
+  border-bottom: 1px solid black;
+  text-align: center;
+  color: black;
+  list-style-type: none;
+}
+
+.single-prod-card a {
+  border-bottom: 1px solid black;
+  text-align: center;
+  color: white;
+  list-style-type: none;
+}
+textarea {
+  width: 50%;
+  height: 20%;
+  border-radius: 20px;
+  padding: 5px;
+}
+h1.kujdes {
+  color: red;
+  text-align: center;
+  font-size: x-large;
+}
+.container {
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  margin: 0 auto;
+  width: 60%;
+  top: calc(height - 100px);
+  height: 100%px;
+  background-color: lightgray;
+  padding: 30px;
+  text-align: center;
+  border-radius: 20px;
+}
+
+.container form {
+  background-color: cadetblue;
+  height: 100%;
+  border-radius: 20px;
+}
+
+.file {
+  background-color: lightgray;
+}
+.form-wrapper.create {
+  top: 0px;
+  height: 100%;
+}
+.form-elem-login.create input {
+  margin-top: 10px;
+}
+.form-elem.create input {
+  padding: 10px;
+  width: 30%;
+  border-radius: 20px;
+}
+.form-elem-login-create-btn input {
+  position: relative;
+  padding: 10px;
+  color: white;
+  background-color: gray;
+  background-color: blue;
+  border: none;
+  border-radius: 10px;
+  margin-bottom: 2%;
+}
+.form-elem-login-reset-btn input {
+  position: relative;
+  padding: 10px;
+  color: black;
+  background-color: gray;
+  background-color: rgb(242, 255, 0);
+  border: none;
+  border-radius: 10px;
+  margin-bottom: 2%;
+}
+
+.form-elem-login-create-btn input:hover {
+  position: relative;
+  padding: 10px;
+  color: black;
+  background-color: gray;
+  background-color: yellow;
+}
+
+.form-elem.create.zgjidh select {
+  padding: 10px;
+  font-size: large;
+  width: 33%;
+  border-radius: 25px;
+}
+.form-elem.create.zgjidh option {
+  font-size: large;
+  padding: 10px;
+}
+
+.form-elem.create.zgjidh option:nth-child(even) {
+  background: lightgray;
+}
+
+/* .container input {
+  border-radius: 20px;
+} */
+a.link {
+  border-bottom: 2px solid black;
+  text-decoration: none;
+  color: red;
+}
+a.link:hover {
+  color: blue;
+}
+.container-profile {
+  margin: 20px;
+  display: flex;
+}
+.container-top {
+  text-align: center;
+}
+h1.mirsevini {
+  color: green;
+}
+p4.emaili {
+  color: blue;
+}
+h4.tel {
+  color: black;
+  background-color: lightgreen;
+  padding: 3px;
+  border-radius: 20px;
+  max-width: 100%;
+}
+.location {
+  color: white;
+  background-color: rgb(245, 71, 71);
+  padding: 3px;
+  border-radius: 20px;
+  max-width: 100%;
+}
+.automk {
+  color: white;
+  text-align: center;
+  background-color: rgb(46, 120, 120);
+}
+.container-home {
+  display: flex;
+  padding: 20px;
+  justify-content: space-between;
+}
+button.danger {
+  background-color: crimson;
+  /* background-color: rgb(138, 4, 4); */
+  border: none;
+  padding: 5px 10px 5px 10px;
+  margin-top: 5px;
+  border-radius: 10px;
+  color: white;
+  width: 60%;
+}
+.featured-products {
+  display: flex;
+  width: 100%;
+  text-align: center;
+  margin: 0 auto;
+}
+
+.product-wrapper-single-featured {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+}
+.single-prod-card-featured img {
+  flex-direction: row;
+  width: 100%;
+  display: flex;
+  border-radius: 20px;
+}
+
+.single-prod-card-featured img:hover {
+  transition: 1s;
+  transform: scale(1.1);
+}
+.single-prod-card-featured img:not(:hover) {
+  transition: 1s;
+  transform: scale(1);
+}
+.single-prod-card-featured {
+  max-width: 360px;
+  margin: 5px;
+  padding: 10px;
+  margin: 0 auto;
+}
+.single-prod-card-featured img {
+  max-width: 100%;
+  height: 200px;
+}
+
+button.danger:hover {
+  background-color: red;
+  cursor: pointer;
+}
+.most-visited {
+  text-align: center;
+  border-bottom: 1px solid black;
+}
+.foto-banner img {
+  width: 400px;
+}
+.foto-falas img {
+  width: 400px;
+  border-radius: 20px;
+}
+
+.zero-produkte {
+  color: red;
+  text-align: center;
+  top: 50%;
+}
+form.search {
+  margin: 0 auto;
+  text-align: center;
+  padding-top: 20px;
+}
+input.search {
+  padding: 10px;
+  width: 40%;
+  border: 2px solid black;
+}
+button.search {
+  padding: 10px;
+  border: 2px solid black;
+  background-color: yellow;
+  color: black;
+  list-style-type: none;
+  text-decoration: none;
+}
+button.search:hover {
+  cursor: pointer;
+}
+a.profile-krijo-produkt-link {
+  color: red;
+  font-size: x-large;
+}
+a.profile-krijo-produkt-link:hover {
+  color: blue;
+}
+.deleteAcc {
+  background-color: red;
+  padding: 6px;
+  width: 10%;
+  color: white;
+  border-radius: 20px;
+  border: none;
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+}
+.board {
+  display: flex;
+  width: 250%;
+  height: 100%;
+  align-items: center;
+  text-align: center;
+  margin: 0 auto;
+  justify-content: center;
+  align-content: center;
+  position: relative;
+  vertical-align: middle;
+  right: 75%;
+}
+
+.cell {
+  align-content: center;
+  justify-content: center;
+  justify-items: center;
+  align-content: center;
+  text-align: center;
+  align-items: center;
+  width: 200px;
+  height: 50px;
+  background-color: #153e4d;
+  color: white;
+  border-radius: 10px;
+  /* 
+  border: 2px solid gray;
+  border-radius: 10px; */
+  border-left: 2px solid yellow;
+  border-right: 2px solid yellow;
+  padding: 5px;
+}
+
+/* .cell img {
+  width: 40%;
+  height: 40%;
+} */
+
+.counter {
+  position: relative;
+  text-align: center;
+  top: 70px;
+  background-color: aqua;
+  /* background: linear-gradient( rgb(82, 82, 253),#385e7d); */
+  margin-bottom: -10px;
+}
+.number {
+  list-style-type: none;
+  text-decoration: none;
+  color: white;
+  font-size: xx-large;
+  font-family: comic sans ms, cursive;
+  position: relative;
+  margin: 0;
+}
+.number:hover {
+  list-style-type: none;
+  text-decoration: none;
+  color: white;
+}
+
+.numberTxt {
+  position: relative;
+  top: 20px;
+}
+.bardh {
+  color: white;
+  text-decoration: none;
+  list-style-type: none;
+}
+.bardh:hover {
+  color: white;
+}
+.data {
+  position: relative;
+  top: -20px;
+  /* text-decoration: line-through; */
+  color: green;
+}
+.admin {
+  color: #153e4d;
+  text-align: center;
+}

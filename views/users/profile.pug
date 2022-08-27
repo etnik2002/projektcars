@@ -1,0 +1,28 @@
+extends ../layout 
+block content 
+    .container-top 
+        h1.mirsevini Miresevini #{user.username}  
+        p4.emaili Emaili juaj eshte : #{user.email}
+        br
+        p4.phone Numri juaj i telefonit eshte : #{user.phone}
+        br
+        br
+        //- form(action="/users/delete/" method="delete")
+        //-     button.deleteAcc Fshi profilin tend
+        h2.produktet-tuaja Postimet tuaja:
+        if userProd.length > 0
+            .user-products-list
+                each e in userProd 
+                    .each-product
+                        h2= e.name 
+                        p= 'Cmimi ' + e.price + '€'
+                        p= 'Data e postimit : '  + e.DATA
+                        a(href="/products/"+e._id )
+                            img(src="/images/products/"+e.image, alt=e.name) 
+                        form(action="/products/delete/"+e._id method="POST")
+                            button.danger(type="submit" value="Fshi") Fshi postimin
+        else 
+            h3  Nuk keni postuar asnje postim!
+            a.profile-krijo-produkt-link(href="/products/create") Kliko ketu per te shtuar nje postim! 
+    
+    

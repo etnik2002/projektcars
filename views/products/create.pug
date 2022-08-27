@@ -1,0 +1,210 @@
+extends ../layout 
+block content 
+    h2= title
+    h1.kujdes Nese produkti qe do ngarkoni nuk i perket kategorise VETURE atehere do te fshihet nga faqja. Me rrespekt stafi i AutoMK!
+    .container 
+        .form-wrapper.create 
+            form(action="/products/create", method="post" enctype="multipart/form-data" ) 
+                .form-elem-login.create
+                    label(for="name")
+                    br
+                    input(type="text" name="name" required placeholder="Emri i vetures")
+                br
+                .form-elem.create.zgjidh
+                    label(for="category") 
+                    select(name="category")  
+                        option(value="") Zgjidh marken e vetures
+                        each e in categories 
+                            option(value=e._id)= e.catName  
+                .form-elem.create
+                    label(for="price" )
+                    br 
+                    input(type="number" name="price" placeholder="Cmimi i vetures ne euro!" required)
+                br
+                
+
+                //- .form-elem.create
+                //-     label(for="location") Lokacioni juaj 
+                //-     br
+                //-     input(type="text" name="location" placeholder="Lokacioni juaj..." required)
+                //- br
+                
+                .form-elem.create.zgjidh
+                    label(for="location") Transmetuesi
+                    br
+                    select(name="location" required)  
+                        option(value="" ) Zgjidh Qytetin
+                            option(value="Tetove") Tetove 
+                            option(value="Shkup")  Shkup
+                            option(value="Gostivar")  Gostivar
+                            option(value="Struga")  Struga
+                            option(value="Ohri")  Ohri
+                            option(value="Diber")  Diber
+                            option(value="Kërçova")  Kërçova
+                            option(value="Veles")  Veles
+                            option(value="Berova")  Berova
+                            option(value="Dellçeva")  Dellçeva
+                            option(value="Koçani")  Koçani
+                            option(value="Kamenica")  Kamenica
+                            option(value="Shtip")  Shtip
+                            option(value="Kratova")  Kratova
+                            option(value="KrivaPallanka")  Kriva Pallanka
+                            option(value="Kumanova")  Kumanova
+                            option(value="Manastiri")  Manastiri
+                            option(value="DemirHisari")  Demir Hisari
+                            option(value="Krusheva")  Krusheva
+                            option(value="Prilep")  Prilep
+                            option(value="Resnja")  Resnja
+                            option(value="Gjevgjelia")  Gjevgjelia
+                            option(value="Strumica")  Strumica
+                            option(value="Vallandova")  Vallandova
+                            option(value="DemirKapia")  Demir Kapia
+                            option(value="Vallandova")  Vallandova
+                            option(value="Negotina")  Negotina
+                            option(value="SvetiNikolla")  Sveti Nikolla
+                            option(value="Brodi")  Brodi
+                            option(value="Probishtipi")  Probishtipi
+
+                br
+                
+                //- .form-elem.create
+                //-     label(for="year")  Viti i prodhimit
+                //-     br
+                //-     input(type="text" name="year" placeholder="Viti i prodhimit" required)
+                .form-elem.create.zgjidh
+                    label(for="year") Viti i prodhimit
+                        br
+                        select(name="year" required)  
+                            option(value="" ) Viti i prodhimit
+                                option(value="1990") 1990 
+                                option(value="1991")  1991
+                                option(value="1992")  1992
+                                option(value="1993")  1993
+                                option(value="1994")  1994
+                                option(value="1995")  1995
+                                option(value="1996")  1996
+                                option(value="1997")  1997
+                                option(value="1998")  1998
+                                option(value="1999")  1999
+                                option(value="2001")  2001
+                                option(value="2002")  2002
+                                option(value="2003")  2003
+                                option(value="2004")  2004
+                                option(value="2005")  2005
+                                option(value="2006")  2006
+                                option(value="2007")  2007
+                                option(value="2008")  2008
+                                option(value="2009")  2009
+                                option(value="2010")  2010
+                                option(value="2011")  2011
+                                option(value="2012")  2012
+                                option(value="2013")  2013
+                                option(value="2014")  2014
+                                option(value="2015")  2015
+                                option(value="2016")  2016
+                                option(value="2017")  2017
+                                option(value="2018")  2018
+                                option(value="2019")  2019
+                                option(value="2020")  2020
+                                option(value="2021")  2021
+                                option(value="2022")  2022
+                //- br
+                //- .form-elem.create
+                //-     label(for="menjachi") Tranzmetuesi 
+                //-     br
+                //-     input(type="text" name="menjachi" placeholder="automatik ose manual" required)
+                //- br
+
+                .form-elem.create.zgjidh
+                    label(for="transmetuesi") Transmetuesi
+                    br
+                    select(name="transmetuesi" required)  
+                        option(value="" ) Transmetuesi
+                            option(value="Automatik") Automatik 
+                            option(value="Manual")  Manual
+                br
+
+                //- .form-elem.create
+                    //- label(for="killometrazha") Kilometra te kaluara 
+                    //- br
+                    //- input(type="text" name="killometrazha" placeholder="Kilometra te kaluara..." required) 
+
+                .form-elem.create.zgjidh
+                    label(for="killometrazha") Kilometrazha
+                    br
+                    select(name="killometrazha" required)  
+                        option(value="" )  Kilometrazha
+                            option(value="0-10000") 0
+                            option(value="10000") 0-10000 
+                            option(value="20000")  10 000 - 20 000
+                            option(value="20000")  20 000 - 30 000
+                            option(value="30000")  30 000 - 40 000
+                            option(value="40000")  40 000 - 50 000
+                            option(value="50000")  50 000 - 60 000
+                            option(value="60000")  60 000 - 70 000
+                            option(value="70000")  70 000 - 80 000
+                            option(value="80000")  80 000 - 90 000
+                            option(value="90000")  90 000 - 100 000
+                            option(value="100000")  100 000 - 110 0000
+                            option(value="110000")  110 000 - 120 000
+                            option(value="120000")  120 000 - 130 000
+                            option(value="130000")  130 000 - 140 000
+                            option(value="140000")  140 000 - 150 000
+                            option(value="150000")  150 000 - 160 000
+                            option(value="160000")  160 000 - 170 000
+                            option(value="170000")  170 000 - 180 000
+                            option(value="180000")  180 000 - 190 000
+                            option(value="190000")  190 000 - 200 000
+                            option(value="200000")  200 000 - 210 000
+                            option(value="250000")  200 000 - 250 000
+                            option(value="300000")  250 000 - 300 000
+                            option(value="350000")  300 000 - 350 000
+                            option(value="400000")  350 000 - 400 000
+                            option(value="450000")  400 000 - 450 000
+                    br
+
+                //- .form-elem.create
+                //-     label(for="karburanti") Karburanti 
+                //-     br
+                //-     input(type="text" name="karburanti" placeholder="Karburanti..." required)
+                //- br
+
+                .form-elem.create.zgjidh
+                    label(for="karburanti") Lenda djegse
+                    br
+                    select(name="karburanti" required)  
+                        option(value="" ) Lenda djegse
+                            option(value="Benzin") Benzin 
+                            option(value="Benzin+Lpg") Benzin + Lpg 
+                            option(value="Diesel")  Diesel
+                .form-elem.create
+                    label(for="hp") Fuqia e motorrit 
+                    br
+                    input(type="number" name="hp" placeholder="Fuqia e motorrit (hp)" required)
+                br
+                .form-elem.create
+                    label(for="kubikazha") Kubikazha 
+                    br
+                    input(type="text" name="kubikazha" placeholder="p.sh : 2000" required) 
+                br
+                .form-elem.create
+                    label(for="image") Zgjidh nje fotografi 
+                    br
+                    input.file(type="file" name="image" required multiple)
+                br
+                .form-elem.create
+                    label(for="description") Pershkrimi i vetures 
+                    br
+                    textarea(type="text" name="description" cols="50" rows="5" placeholder="Jepni nje pershkrim te detajuar vetures suaj." required)
+                br
+                .form-elem-login-create-btn
+                    input(type="submit" value="Krijo Produktin")
+                .form-elem-login-reset-btn
+                    input(type="reset" value="Rifillo") 
+        br
+        br
+        br
+        br
+        br
+        a.link(href="/products") Shiko te gjitha produktet
+        

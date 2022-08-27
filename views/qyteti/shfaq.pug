@@ -1,0 +1,7 @@
+extends ../layout
+block content
+    if qytetet.length > 0
+        .product-wrapper.flex-col
+            each q in qytetet
+                .single-card-prod 
+                    h3 #{q.name}

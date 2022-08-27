@@ -1,0 +1,21 @@
+extends ../layout 
+block content 
+    h1.kujdes Nese produkti qe do ngarkoni nuk i perket kategorise VETURE atehere do te fshihet nga faqja. Me rrespekt stafi i AutoMK!
+    .container 
+        .form-wrapper.create 
+            form(action="/qyteti/create", method="post" enctype="multipart/form-data") 
+                .form-elem.create
+                    label(for="name")
+                    br 
+                    input(type="text" name="name" placeholder="shto nje qytet" required)
+                br
+                .form-elem-login-create-btn
+                    input(type="submit" value="Shto qytetin")
+                
+
+        br
+        br
+        br
+        br
+        br
+        a.link(href="/products") Shiko te gjitha produktet

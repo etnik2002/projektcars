@@ -1,0 +1,29 @@
+extends ../layout 
+block content 
+    .product-wrapper-single
+        .single-prod-card 
+            h3=singleProduct.name
+            a(href="/products/"+singleProduct._id)
+                img(src="/images/products/"+singleProduct.image, alt=singleProduct.name) 
+            h3.cmimi= 'Cmimi : ' + singleProduct.price + '€'
+            h3.pershkrimi= 'Përshkrimi : ' + singleProduct.description 
+            h3= 'Data e postimit : ' +  singleProduct.DATA
+            h3.shitesi= 'Shitësi : ' +  singleProduct.seller 
+            h3.shitesi= 'Qyteti : ' + singleProduct.location
+            h3.tel= 'Tel : ' +  singleProduct.phone
+            //- h3.shitesi= 'Kilometra te kaluara : ' + singleProduct.killometrazha + ' km'
+            //- h3.shitesi= 'Viti i prodhimit : ' + singleProduct.year
+            //- h3.shitesi= 'Fuqia e motorrit : ' + singleProduct.hp + ' hp'
+            //- h3.shitesi= 'Transmetuesi : ' + singleProduct.menjachi
+            //- h3.shitesi= 'Kubikazha : ' + singleProduct.kubikazha + ' cc'
+
+            .board  
+                div.cell= 'Kilometra të kaluara : ' + singleProduct.killometrazha
+                    //- img(src="https://e7.pngegg.com/pngimages/376/197/png-clipart-car-gear-stick-manual-transmission-car-text-car.png", alt="")
+                div.cell='Viti i prodhimit : ' + singleProduct.year
+                div.cell= 'Kubikazha e motorrit : ' + singleProduct.kubikazha + ' cc'
+                div.cell='Fuqia e motorrit : ' + singleProduct.hp + ' hp'
+                div.cell= 'Lënda djegëse :  '  + singleProduct.karburanti
+                div.cell= 'Transmetuesi : ' +singleProduct.transmetuesi
+
+            

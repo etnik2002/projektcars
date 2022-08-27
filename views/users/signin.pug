@@ -1,0 +1,19 @@
+
+extends ../layout 
+block content 
+    h2.regjistrohu Identifikohu
+    .form-wrapper 
+        form(action="/users/login", method="post") 
+            .form-elem-login
+                label(for="email" )   
+                input(type="email" name="email" placeholder="Emaili juaj *" required)
+            br
+            .form-elem-login
+                label(for="password")  
+                input(type="password" name="password" placeholder="Passwordi juaj *" required)
+            br
+            .form-elem-login-submit
+                input(type="submit" value="Login")
+    br
+    .link-navigim
+        a(href="/users/register") Nuk je regjistruar akoma? Regjistrohu ketu

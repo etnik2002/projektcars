@@ -1,0 +1,47 @@
+extends layout 
+block content
+    .container-home
+        //- h2.automk Добродојдовте во ...
+        .foto-banner        
+            img(src="https://scontent-ber1-1.xx.fbcdn.net/v/t39.30808-6/298460714_2344141982403765_1087725370916905389_n.jpg?_nc_cat=108&ccb=1-7&_nc_sid=8bfeb9&_nc_eui2=AeF_Dsl1210jSgefcsw11Vd9-PQFloRet2_49AWWhF63b2UOu55mTzDlI1VsBlvfhgY8uodDdTSmnPclCHLB56fG&_nc_ohc=H6z9CrVy3doAX8uPZJK&_nc_ht=scontent-ber1-1.xx&oh=00_AT9tgqyYv7l7fhBfhrhtVuwFOR8Xa8CYSyojqZH0lBI4TQ&oe=62F7FE4D", alt="")
+        .foto-falas
+            a(href="/products/create")
+                img(src="https://scontent-ber1-1.xx.fbcdn.net/v/t39.30808-6/297871500_2344141979070432_8078723704160247690_n.jpg?_nc_cat=103&ccb=1-7&_nc_sid=8bfeb9&_nc_eui2=AeE8k9cTIGgobTGV1ftwNprf-sQf_59Nr576xB__n02vni5eOzKrEJ7SO_eIU3M7Rm_b4mSdRo6qgoHDCmfC83qe&_nc_ohc=--o7V54sWi4AX884DB-&_nc_oc=AQkSLDthi_XYfCICPXtK_0Yh58vWfuL4XhNg5kDfPDPj0B4NTfK18OWsVAVNOv8SLyQxlwTgsqnnpfbhgvjho4BY&tn=qxg4-94MVpqvRVmu&_nc_ht=scontent-ber1-1.xx&oh=00_AT_L9vdXMHYHKfSH5mU5QmWySp7EIHEVzBwWmTxzb7Zv9g&oe=62F6A2E6", alt="Kliko per te shitur veturen tende")
+    
+    
+    if isFeatured.length > 0
+        h1.most-visited Најпосетени постирања
+        .featured-products 
+            each e in isFeatured 
+                .single-prod-card-featured 
+                    a(href="/products/"+e._id)     
+                        h3.product-name=e.name
+                    a(href="/products/"+e._id)
+                        img(src="/images/products/"+e.image, alt=e.name) 
+                    h4.price Цена : #{e.price} €
+                    h4.shitesi Продабач : #{e.seller}
+                    h4.tel Тел : #{e.phone} 
+    
+    
+    footer.footer
+      .column.footer
+        h3.footer За нас
+        p.footer Етник зеќири
+        p.footer Бр. Тел : +389 76 224 065
+        p.footer Персонален емаил : etnikz2002@gmail.com
+        p.footer Инфо емаил : automk.info@gmail.com
+        p.footer Developed By : Etnik Zeqiri
+        p.footer 
+      .column.footer
+        h3.footer Други продукти
+        ul.footer
+          li.footer
+            a.footer(href='https://kupivreki.netlify.app/' target="_blank") Kupi Vreki MK
+      .column.footer
+        h3.footer Прати порака!
+        form.footer(action='')
+          input.footer(type='text')
+          button.footer(type='button') Прати
+    .bottom.footer
+      p.footer.copyright &copy; Copyright Etnik Zeqiri 2022
+    

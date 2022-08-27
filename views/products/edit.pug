@@ -1,0 +1,25 @@
+extends ../layout 
+block content 
+    h2= title
+    h1.kujdes Ndrysho postimin tuaj!
+    .container 
+        .form-wrapper.create 
+            form(action="/products/edit/"+prod._id, method="post" ) 
+                .form-elem
+                    label(for="name")
+                    input(type="text" name="name" value=prod.name  required )
+                br
+                .form-elem
+                    label(for="price")
+                    br 
+                    input(type="number" name="price" value=prod.price required)
+                br
+                .form-elem
+                    label(for="description") Pershkrimi i vetures 
+                    br
+                    textarea(type="text" name="description" required)=value=prod.description
+                br
+                .form-elem
+                    input(type="submit" value="Ruaj ndryshimet")
+        br
+        a.link(href="/users/profile") Shiko te gjitha listimet tuaja

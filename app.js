@@ -90,6 +90,6 @@ app.get('/mk', (req, res) => {
   // res.render('mk');
 });
 
-app.listen(PORT, () => {
+app.listen(PORT | 5000, () => {
   console.log(`server started at http://localhost:${PORT}`);
 });

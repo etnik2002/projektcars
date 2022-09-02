@@ -21,7 +21,7 @@ const userRoutes = require('./routes/users.js');
 const categoryRoutes = require('./routes/categories');
 const productRoutes = require('./routes/products');
 const qytetiRoutes = require('./routes/qyteti');
-const transRoutes = require('./routes/transmetuesi');
+// const transRoutes = require('./routes/transmetuesi');
 const { kerkohetIdentifikimi, isAdmin } = require('./middleware/auth');
 
 // middlewares
@@ -62,7 +62,7 @@ app.use('/users', userRoutes);
 app.use('/categories', categoryRoutes);
 app.use('/products', productRoutes);
 app.use('/qyteti', isAdmin, qytetiRoutes);
-app.use('/trans', transRoutes);
+// app.use('/trans', transRoutes);
 // app.use('/menjaci', transmetuesiRoutes);
 
 app.get('/', async (req, res) => {

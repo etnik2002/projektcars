@@ -80,9 +80,9 @@ block content
                         .col-sm-9.text-secondary
 
                           if user.userRole == 'admin'
-                            span(class="alert alert-success" disabled) ADMIN 
+                            span(class="alert alert-success" id="adminAlert" disabled) ADMIN 
                           else 
-                            span(class="alert alert-danger" disabled) Përdorues 
+                            span(class="alert alert-danger" id="adminAlert" disabled) Përdorues 
                             form(action="/users/delete/"+user._id method="POST")
                               button(type="submit" class="btn btn-danger" value="Fshi" id="deleteAccProfile") Fshi llogarin tuaj                      
                       br

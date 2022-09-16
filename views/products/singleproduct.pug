@@ -6,7 +6,7 @@ block content
     link(rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/magnific-popup.css')
     script(src='https://cdnjs.cloudflare.com/ajax/libs/jquery.isotope/3.0.6/isotope.pkgd.js')
     script(src='https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/jquery.magnific-popup.js')
-    .container
+    .container.containerProfile.singleProd
       .row
         .col-lg-12.text-center.my-2
           
@@ -43,13 +43,13 @@ block content
             //- h3.shitesi= 'Kubikazha : ' + singleProduct.kubikazha + ' cc'
 
             .board  
-                div.cell= 'Kilometra të kaluara : ' + singleProduct.killometrazha
-                    //- img(src="https://e7.pngegg.com/pngimages/376/197/png-clipart-car-gear-stick-manual-transmission-car-text-car.png", alt="")
-                div.cell='Viti i prodhimit : ' + singleProduct.year
-                div.cell= 'Kubikazha e motorrit : ' + singleProduct.kubikazha + ' cc'
-                div.cell='Fuqia e motorrit : ' + singleProduct.hp + ' hp'
-                div.cell= 'Lënda djegëse :  '  + singleProduct.karburanti
-                div.cell= 'Transmetuesi : ' +singleProduct.transmetuesi
+                .cell= 'Kilometra të kaluara : ' + singleProduct.killometrazha
+                  //- img(src="https://e7.pngegg.com/pngimages/376/197/png-clipart-car-gear-stick-manual-transmission-car-text-car.png", alt="")
+                .cell='Viti i prodhimit : ' + singleProduct.year
+                .cell= 'Kubikazha e motorrit : ' + singleProduct.kubikazha + ' cc'
+                .cell='Fuqia e motorrit : ' + singleProduct.hp + ' hp'
+                .cell= 'Lënda djegëse :  '  + singleProduct.karburanti
+                .cell= 'Transmetuesi : ' +singleProduct.transmetuesi
 
  
     

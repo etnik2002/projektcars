@@ -1,3 +1,29 @@
 extends ../layout 
-include ../mixins/CategoryCard
 block content 
+    h3 Te gjitha Kategorite
+        each cat in categories 
+            .table-responsive
+                 table(class="table table-bordered")
+                   thead
+                     tr
+                       th ID
+                       th Emri
+                       th Data e postimit
+                       th Fotografi
+                       th Menaxho
+                   tbody
+                     tr
+                       td
+                            a(href="/products/"+cat._id )
+                                h5(class="alert alert-danger")= cat._id
+                       td
+                            a(href="/products/"+cat._id )
+                                h5(class="alert alert-info")= cat.catName
+                       td
+                            h5(class="alert alert-success")= cat.description
+                       td
+                        a(href="/products/"+cat._id )
+                           img(src="/images/products/"+cat.image id="table-img")
+                       td 
+                         form(action="/products/delete/"+cat._id method="POST")
+                           button(type="submit" class="btn btn-danger" value="Fshi") Fshi

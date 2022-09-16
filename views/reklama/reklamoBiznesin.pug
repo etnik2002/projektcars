@@ -1,0 +1,125 @@
+extends ../layout
+block content 
+    body.create-company-body
+        div(class="container" )
+            h3(class="alert alert-success") Këtu mund të reklamoni firmën tuaj, mbushni të dhënat e nevojshme per të shfaqur firmën tuaj në faqen tonë!
+            h3(class="alert alert-warning") Nëse kompania juaj ka nevojë për një Ueb sajt, na kontaktoni neve dhe ne do ta bëjmë të mundur që kompania juaj të pajiset me një Ueb sajt.Na kontakt në email : automk.info@gmail.com ose Nr. Tel : +389 76 224 065
+            hr
+        div(class="container" id="container") 
+            #form-wrapper.create 
+                form(action="/reklamo/biznes", method="post" enctype="multipart/form-data") 
+                    #form-elem
+                        label(for="businessName")
+                        br
+                        input(type="text" name="businessName"  placeholder="Emri i biznesit tuaj" class="form-control")
+                    br
+    
+                    #form-elem.create.zgjidh
+                        label(for="businessCategory") 
+                        br
+                        select(name="businessCategory"  class="form-control")  
+                            option(value="" ) Kategoria
+                                option(value="Biznes Individual") Biznes individual 
+                                option(value="Ortakëriepërgjithshme")  Ortakëri e përgjithshme
+                                option(value="Ortakëriekufizuar")  Ortakëri e kufizuar
+                                option(value="Shoqërimepërgjegjësi të kufizuara")  Shoqëri me përgjegjësi të kufizuara
+                                option(value="Shoqëriaksionare")  Shoqëri aksionare
+                                option(value="ZyraePërfaqësisë së Shoqërisë së Huaj Tregtare")  Zyra e Përfaqësisë së Shoqërisë së Huaj Tregtare
+                                option(value="Ndërmarrjetshoqërore")  Ndërmarrjet shoqërore
+                                option(value="Ndërmarrjetpublike")  Ndërmarrjet publike
+                                option(value="Kooperativatbujqësore:") Kooperativat bujqësore:
+                    br
+    
+                    #form-elem
+                        label(for="businessLocation")
+                        br
+                        select(name="businessLocation"  class="form-control")  
+                            option(value="" ) Zgjidh Qytetin
+                                option(value="Tetove") Tetove 
+                                option(value="Shkup")  Shkup
+                                option(value="Gostivar")  Gostivar
+                                option(value="Struga")  Struga
+                                option(value="Ohri" )  Ohri
+                                option(value="Diber")  Diber
+                                option(value="Kërçova")  Kërçova
+                                option(value="Veles")  Veles
+                                option(value="Berova")  Berova
+                                option(value="Dellçeva")  Dellçeva
+                                option(value="Koçani")  Koçani
+                                option(value="Kamenica")  Kamenica
+                                option(value="Shtip")  Shtip
+                                option(value="Kratova")  Kratova
+                                option(value="KrivaPallanka")  Kriva Pallanka
+                                option(value="Kumanova")  Kumanova
+                                option(value="Manastiri")  Manastiri
+                                option(value="DemirHisari")  Demir Hisari
+                                option(value="Krusheva")  Krusheva
+                                option(value="Prilep")  Prilep
+                                option(value="Resnja")  Resnja
+                                option(value="Gjevgjelia")  Gjevgjelia
+                                option(value="Strumica")  Strumica
+                                option(value="Vallandova")  Vallandova
+                                option(value="DemirKapia")  Demir Kapia
+                                option(value="Vallandova")  Vallandova
+                                option(value="Negotina")  Negotina
+                                option(value="SvetiNikolla")  Sveti Nikolla
+                                option(value="Brodi")  Brodi
+                                option(value="Probishtipi")  Probishtipi
+                    br
+    
+                    #form-elem.create
+                        label(for="adresa") Adresa
+                        br
+                        input(type="text" name="adresa" placeholder="shembull: rr. Bajram Shabani, nr.14., 1000 Shkup"  class="form-control") 
+                    br
+                    #form-elem.create
+                        label(for="businessEmail") Emaili
+                        br
+                        input(type="text" name="businessEmail" placeholder="Emaili..."  class="form-control") 
+                    br
+    
+    
+                    #form-elem.create
+                        label(for="ownerPhone") Tel. Pronarit 
+                        br
+                        input(type="text" name="ownerPhone" placeholder="Tel. Pronarit"  class="form-control") 
+                    br
+                    #form-elem.create
+                        label(for="businessPhone") Tel. Biznesit
+                        br
+                        input(type="text" name="businessPhone" placeholder="Tel. Biznesit"  class="form-control") 
+                    br
+                    #form-elem.create
+                        label(for="website") Ueb faqe
+                        br
+                        input(type="text" name="website" placeholder="Linku i Ueb faqes se biznesit tuaj  ( jo e domosdoshme )"  class="form-control") 
+                    br         
+    
+                    #form-elem
+                        label(for="businessImage" class="form-label") Zgjidh fotografi 
+                        br
+                        input(type="file" name="businessImage" class="form-control" required multiple )
+    
+                    br
+                    #form-elem.create
+                        label(for="businessDescription") * Veprimtaria kryesore (përshkrim i detajuar): 
+                        br
+                        textarea(type="text" name="businessDescription" cols="50" rows="5" 
+                        placeholder="shembull: Ndërtimtari (projektimin dhe prodhimin e mobiljeve për zyre, orendi shtëpiake, etj.)" 
+                         class="form-control")
+                    br
+                    #form-elem-login-create-btn
+                        input(type="submit" value="Shto" class="btn btn-success")
+                    br
+                    #form-elem-login-reset-btn
+                        input(type="reset" value="Rifillo" class="btn btn-warning") 
+                    br
+    
+            br
+            a(href="/reklamo/teGjitha" class="link link-primary") Shiko te gjitha Kompanitë
+            br
+            br
+            br
+            h1 
+            
+    

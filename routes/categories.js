@@ -13,6 +13,7 @@ const {
   getCreate,
   postCreate,
   getSingleCatPost,
+  postDeleteCat,
 } = require('../controllers/Category-Controllers');
 
 //import multer from middleware
@@ -21,7 +22,7 @@ const { catUpload } = require('../middleware/multer');
 
 // route for this file http://localhost:5000/categories
 
-router.get('/', getCategories);
+router.get('/', isAdmin, getCategories);
 
 //get create category page http://localhost:5000/categories/create
 router.get('/create', isAdmin, getCreate);
@@ -31,6 +32,8 @@ router.post('/create', isAdmin, catUpload.single('catImg'), postCreate);
 
 //get category products
 
-router.get('/:id', getSingleCatPost);
+router.get('/cats', isAdmin, getSingleCatPost);
+
+router.post('/delete/:id', postDeleteCat);
 
 module.exports = router;

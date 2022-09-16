@@ -8,6 +8,8 @@ const userSchema = mongoose.Schema(
     },
     phone: {
       type: String,
+      minlength: 9,
+      maxLength: 9,
     },
     email: {
       type: String,
@@ -16,13 +18,25 @@ const userSchema = mongoose.Schema(
     },
     password: {
       type: String,
+      minlength: 8,
     },
     userRole: {
       type: String,
       enum: ['user', 'admin'],
       default: 'user',
     },
+    vendbanimi: {
+      type: 'String',
+    },
+    notification: {
+      type: String,
+    },
+    wishlistId: {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: 'Product',
+    },
   },
+
   { timestamps: true }
 );
 module.exports = mongoose.model('User', userSchema);

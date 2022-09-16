@@ -29,4 +29,19 @@ var productStorage = multer.diskStorage({
 
 var productUpload = multer({ storage: productStorage });
 
-module.exports = { catUpload, productUpload };
+// business upload
+
+var businessStorage = multer.diskStorage({
+  destination: function (req, file, cb) {
+    cb(null, './public/images/business');
+  },
+  filename: function (req, file, cb) {
+    cb(null, Date.now() + '-' + file.originalname);
+  },
+});
+
+var businessUpload = multer({ storage: businessStorage });
+
+//businessUpload
+
+module.exports = { catUpload, productUpload, businessUpload };

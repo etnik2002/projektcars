@@ -1,5 +1,6 @@
 const router = require('express').Router();
 const passport = require('passport');
+const { kerkohetIdentifikimi, isAdmin } = require('../middleware/auth');
 
 //import controllers
 const {
@@ -11,7 +12,15 @@ const {
   postDeleteAccount,
   getAllUsers,
   showAllUsers,
+  allUsersLength,
+  getUserCompany,
+  postDeleteCompany,
+  getWishlist,
+  postWishlist,
+  getAdminDashboard,
+  adminat,
 } = require('../controllers/User-Controller');
+const { app } = require('cli');
 
 router.get('/', getUsers);
 
@@ -32,6 +41,7 @@ router.post(
   passport.authenticate('local', {
     successRedirect: '/',
     failureRedirect: '/users/login?succes=false',
+    // failureFlash: true,
   })
 );
 
@@ -48,10 +58,24 @@ router.get('/logout', (req, res) => {
   });
 });
 
-router.post('/delete', postDeleteAccount);
+router.post('/delete/:id', postDeleteAccount);
 
 router.get('/all', getAllUsers);
 
 router.get('/showall', showAllUsers);
+
+router.get('/allUsers', isAdmin, allUsersLength);
+
+router.get('/userCompany', kerkohetIdentifikimi, getUserCompany);
+
+router.post('/deleteCompany/:id', postDeleteCompany);
+
+router.get('/wishlist', getWishlist);
+
+router.post('/wishlist/:id', postWishlist);
+
+router.get('/adminDashboard', isAdmin, getAdminDashboard);
+
+router.get('/adminAcc', isAdmin, adminat);
 
 module.exports = router;

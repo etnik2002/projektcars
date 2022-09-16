@@ -1,20 +1,50 @@
-nav 
+.navbar-full
+  #myNav.overlay
+    a.closebtn(href='javascript:void(0)' onclick='closeNav()') &times;
+    .overlay-content
+      li
+        a.lime(href='/') Ballina
+          i(class="fa fa-home")
+              li
+                a.lime(href="/products") Blej
+                  i(class="fa fa-car")
+          li
+            a.lime(href="/reklamo/teGjitha") Firmat 
+              i(class="fa fa-building")
+          li
+            a.lime(href="/products/create") Shit 
+              i(class="fa fa-money")
+  
+          li
+            a.lime(href="/reklamo/biznes") Reklamoni Firmën tuaj 
+              i(class="fa fa-share")
 
-    ul.nav-menu 
-        img(src="https://scontent.fmbx2-1.fna.fbcdn.net/v/t39.30808-6/297088815_2344142055737091_3464881371090965184_n.jpg?_nc_cat=107&ccb=1-7&_nc_sid=8bfeb9&_nc_ohc=zxYBxmSL1_QAX-cLcmT&_nc_ht=scontent.fmbx2-1.fna&oh=00_AT-r8PrlCnxjz3p9hADuhQ7e9J-9ZDQjDKEUy5-g4CxWNw&oe=6309B87E", alt="logo")
 
-        li 
-            a(href="/") Ballina
-        li 
-            a(href="/products") Blej
-        li 
-            a(href="/products/create") Shit veturën tënde
-        li 
-            a(href="/users/profile") Profili
-        li 
-            a(href="/users/logout") Login/out 
-        
-        //- li 
-        //-     a(href="/mk") 
-        //-         p mk
-//- https://scontent-ber1-1.xx.fbcdn.net/v/t39.30808-6/297088815_2344142055737091_3464881371090965184_n.jpg?_nc_cat=107&ccb=1-7&_nc_sid=8bfeb9&_nc_eui2=AeGCqv_jZSXDVPmApjx9TTeIn3oGN-3R0i-fegY37dHSL7gse0xfjGLRWbiqfhFgb1a3255tEsKeTQBft-Jt6EOE&_nc_ohc=rfocJDRQyooAX9j5fIC&_nc_ht=scontent-ber1-1.xx&oh=00_AT92ylrzUW_XDqVP0DZvrQ6f1XNmgIZYA3LGdLaMiENe0g&oe=62F7EC3E
+  
+  
+          
+  span.menu-text(style='font-size:30px;cursor:pointer' onclick='openNav()') &#x2630; Menu
+  script.
+    function openNav() {
+    document.getElementById("myNav").style.width = "100%";
+    }
+    function closeNav() {
+    document.getElementById("myNav").style.width = "0%";
+    }
+    
+  nav
+    .navbarrrrrr 
+      ul.nav(class="navbar-nav navbar-right")
+      li
+        a(href="/users/profile") 
+          span(class="glyphicon glyphicon-user")
+          |  Profili
+      li
+        if user
+          a(href="/users/logout") 
+            span(class="glyphicon glyphicon-log-in")
+            |  Logout 
+        if !user
+          a(href="/users/logout") 
+            span(class="glyphicon glyphicon-log-in")
+            |  Login    

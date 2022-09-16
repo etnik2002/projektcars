@@ -9,12 +9,13 @@ module.exports = {
     const sortedCat = categories.sort((a, b) =>
       a.catName.localeCompare(b.catName)
     );
-    console.log({ sortedCat });
-    res.render('categories/index', { sortedCat });
+    console.log({ categories });
+    res.render('categories/index', { categories });
   },
   getCreate: (req, res) => {
     res.render('categories/newcat');
   },
+
   postCreate: async (req, res) => {
     const lkc = req.body.location;
     const lokacioni = Product.find({ lkc }).lean();
@@ -36,7 +37,22 @@ module.exports = {
   getSingleCatPost: async (req, res) => {
     const catId = await Category.findById(req.params.id).lean();
     const prodCat = await Product.find({ category: catId }).lean();
-
-    res.render('categories/singleCat', { prodCat });
+    const categories = await Category.find({}).lean();
+    res.render('categories/singleCat', { prodCat, categories });
+  },
+  postDeleteCat: async (req, res, next) => {
+    console.log(req.params);
+    try {
+      let kategoria = await Category.findById(req.params.id).lean();
+      console.log({ kategoria });
+      if (!kategoria) {
+        res.redirect('categories/category?sukses=JO');
+      }
+      await Category.deleteOne({ _id: req.params.id });
+      res.redirect('/?sukses=PO');
+    } catch (error) {
+      console.log(error);
+      res.redirect('/category?deleted=JO');
+    }
   },
 };

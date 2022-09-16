@@ -1,0 +1,235 @@
+extends layout
+block content
+        link(rel='stylesheet' type='text/css' href='https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css')
+        link(rel='stylesheet' type='text/css' href='https://pixinvent.com/stack-responsive-bootstrap-4-admin-template/app-assets/css/bootstrap-extended.min.css')
+        link(rel='stylesheet' type='text/css' href='https://pixinvent.com/stack-responsive-bootstrap-4-admin-template/app-assets/fonts/simple-line-icons/style.min.css')
+        link(rel='stylesheet' type='text/css' href='https://pixinvent.com/stack-responsive-bootstrap-4-admin-template/app-assets/css/colors.min.css')
+        link(rel='stylesheet' type='text/css' href='https://pixinvent.com/stack-responsive-bootstrap-4-admin-template/app-assets/css/bootstrap.min.css')
+        link(href='https://fonts.googleapis.com/css?family=Montserrat&display=swap' rel='stylesheet')
+        
+        h2.dataSot(style=("font-size:x-large; text-align:center; margin-top:20px"))= DATA
+
+        .grey-bg.container-fluid
+          section#minimal-statistics
+            .row
+              .col-12.mt-3.mb-1
+                h4.text-uppercase(style=("font-size:x-large")) Statistikat e faqes
+                p(style=("font-size:x-large")) Statistikat e regjistrimit të veturave, përdoruesve  dhe kompanive
+          h2 Veturat
+            .row
+              .col-xl-3.col-sm-6.col-12
+                .card
+                  .card-content
+                    .card-body
+                      .media.d-flex
+                        .align-self-center
+                          i.icon-pencil.primary.font-large-2.float-left
+                        .media-body.text-right
+                          h3(style=("font-size:x-large")) #{allProds.length}
+                          a(href="/products/all" style=("font-size:19px")) Veturat e regjistruara në faqe (totali)
+              if perqindjaPostimeve > 0
+                .col-xl-3.col-sm-6.col-12
+                  .card
+                    .card-content
+                      .card-body
+                        .media.d-flex
+                          .align-self-center
+                            i.icon-graph.success.font-large-2.float-left
+                          .media-body.text-right
+                            h3(style=("font-size:x-large; color:lime"))= '+' + parseFloat(perqindjaPostimeve).toFixed(2) + '%'
+                            span(style=("font-size:19px")) Përqindja e regjistrimeve të veturave në 24 orë
+              if perqindjaPostimeve < 0
+                .col-xl-3.col-sm-6.col-12
+                  .card
+                    .card-content
+                      .card-body
+                        .media.d-flex
+                          .align-self-center
+                            i.icon-graph.danger.font-large-2.float-left
+                          .media-body.text-right
+                            h3(style=("font-size:x-large; color:red"))= '-' + parseFloat(perqindjaPostimeve).toFixed(2) + '%'
+                            span(style=("font-size:19px")) Përqindja e postimeve të veturave në 24 orë
+                            
+              .col-xl-3.col-sm-6.col-12
+                .card
+                  .card-content
+                    .card-body
+                      .media.d-flex
+                        .align-self-center
+                          i.icon-pencil.successs.font-large-2.float-left
+                        .media-body.text-right
+                          h3(style=("font-size:x-large; color:red"))= veturatThisWeek.length 
+                          span(style=("font-size:19px")) Veturat e regjistruara gjatë kësaj jave
+              .col-xl-3.col-sm-6.col-12
+                .card
+                  .card-content
+                    .card-body
+                      .media.d-flex
+                        .align-self-center
+                          i.icon-pointer.danger.font-large-2.float-left
+                        .media-body.text-right
+                          h3(style=("font-size:x-large")) 1000+
+                          span(style=("font-size:19px")) Vizitorët e faqes në total (të gjitha shtetet)
+              .col-xl-3.col-sm-6.col-12
+                .card
+                  .card-content
+                    .card-body
+                      .media.d-flex
+                        .align-self-center
+                          i.icon-speech.warning.font-large-2.float-left
+                        .media-body.text-right
+                          h3 0
+                          span(style=("font-size:x-large")) Komentet
+
+          h2 Përdoruesit dhe Adminat
+            hr
+            .row
+
+              .col-xl-3.col-sm-6.col-12
+                .card
+                  .card-content
+                    .card-body
+                      .media.d-flex
+                        .media-body.text-left
+                          h3.success(style=("font-size:x-large")) #{allUsers.length}
+                          a(href="/users/allUsers" style=("font-size:x-large")) Përdorues të regjistruar 
+                        .align-self-center
+                          i.icon-user.success.font-large-2.float-right
+              .col-xl-3.col-sm-6.col-12
+                .card
+                  .card-content
+                    .card-body
+                      .media.d-flex
+                        .media-body.text-left
+                          h3.danger(style=("font-size:x-large")) #{adminUser.length}
+                          a(href="/users/adminAcc" style=("font-size:x-large")) Adminat
+                        .align-self-center
+                          i.icon-rocket.danger.font-large-2.float-right
+              .col-xl-3.col-sm-6.col-12
+                .card
+                  .card-content
+                    .card-body
+                      .media.d-flex
+                        .media-body.text-left
+                          h3.primary(style=("font-size:x-large")) 0
+                          span(style=("font-size:x-large")) Mesazhet (support)
+                        .align-self-center
+                          i.icon-support.primary.font-large-2.float-right
+          h2 Kompanitë
+            hr
+            .row
+              .col-xl-3.col-sm-6.col-12
+                .card
+                  .card-content
+                    .card-body
+                      .media.d-flex
+                        .media-body.text-left
+                          h3.primary(style=("font-size:x-large")) #{companies.length}
+                          a(href="/reklamo/teGjitha" style=("font-size:x-large")) Kompanitë e regjistruara
+                        .align-self-center
+                          i.icon-book-open.primary.font-large-2.float-right
+              if perqindjaKompanive < 0
+                .col-xl-3.col-sm-6.col-12
+                  .card
+                    .card-content
+                      .card-body
+                        .media.d-flex
+                          .align-self-center
+                            i.icon-graph.warning.font-large-2.float-left
+                          .media-body.text-right
+                            h3(style=("font-size:x-large; color:red"))= '-' + perqindjaKompanive.toFixed(2) + '%'
+                            span(style=("font-size:19px")) Përqindja e regjistrimeve të kompanive në 24h orë
+              else if perqindjaKompanive > 0
+                .col-xl-3.col-sm-6.col-12
+                  .card
+                    .card-content
+                      .card-body
+                        .media.d-flex
+                          .align-self-center
+                            i.icon-graph.success.font-large-2.float-left
+                          .media-body.text-right
+                            h3(style=("font-size:x-large; color:lime"))= '+' + perqindjaKompanive.toFixed(2) + '%'
+                            span(style=("font-size:19px")) Përqindja e regjistrimeve të kompanive në 24h orë
+              .col-xl-3.col-sm-6.col-12
+                .card
+                  .card-content
+                    .card-body
+                      .media.d-flex
+                        .media-body.text-left
+                          h3.warning(style=("font-size:x-large")) 0
+                          span(style=("font-size:x-large")) Komentet
+                        .align-self-center
+                          i.icon-bubbles.warning.font-large-2.float-right
+                      //- .progress.mt-1.mb-0(style='height: 7px;')
+                        //- .progress-bar.bg-warning(role='progressbar' style='width: 0%' aria-valuenow='35' aria-valuemin='0' aria-valuemax='100')
+        
+
+              //- .col-xl-3.col-sm-6.col-12
+              //-   .card
+              //-     .card-content
+              //-       .card-body
+              //-         .media.d-flex
+              //-           .media-body.text-left
+              //-             h3.danger(style=("font-size:x-large")) 100+
+              //-             span(style=("font-size:x-large")) Total Visits
+              //-           .align-self-center
+              //-             i.icon-direction.danger.font-large-2.float-right
+              //-         .progress.mt-1.mb-0(style='height: 7px;')
+              //-           .progress-bar.bg-danger(role='progressbar' style='width: 40%' aria-valuenow='40' aria-valuemin='0' aria-valuemax='100')
+
+          section#stats-subtitle
+            .row
+              .col-12.mt-3.mb-1
+                h4.text-uppercase Statistics With Subtitle
+                p Statistics on minimal cards with Title &amp; Sub Title.
+            .row
+              .col-xl-6.col-md-12
+                .card.overflow-hidden
+                  .card-content
+                    .card-body.cleartfix
+                      .media.align-items-stretch
+                        .align-self-center
+                          i.icon-pencil.primary.font-large-2.mr-2
+                        .media-body
+                          h4 Total Posts
+                          span Monthly blog posts
+                        .align-self-center
+                          h1 18,000
+              .col-xl-6.col-md-12
+                .card
+                  .card-content
+                    .card-body.cleartfix
+                      .media.align-items-stretch
+                        .align-self-center
+                          i.icon-speech.warning.font-large-2.mr-2
+                        .media-body
+                          h4 Total Comments
+                          span Monthly blog comments
+                        .align-self-center
+                          h1 84,695
+            .row
+              .col-xl-6.col-md-12
+                .card
+                  .card-content
+                    .card-body.cleartfix
+                      .media.align-items-stretch
+                        .align-self-center
+                          h1.mr-2 $76,456.00
+                        .media-body
+                          h4 Total Sales
+                          span Monthly Sales Amount
+                        .align-self-center
+                          i.icon-heart.danger.font-large-2
+              .col-xl-6.col-md-12
+                .card
+                  .card-content
+                    .card-body.cleartfix
+                      .media.align-items-stretch
+                        .align-self-center
+                          h1.mr-2 $36,000.00
+                        .media-body
+                          h4 Total Cost
+                          span Monthly Cost
+                        .align-self-center
+                          i.icon-wallet.success.font-large-2
+        

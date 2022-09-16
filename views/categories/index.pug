@@ -1,8 +1,31 @@
 extends ../layout 
-include ../mixins/CategoryCard
 block content 
-    .category-wrappers 
-        each category in categories
-            +CategoryCard(categories)
-            a(href="/categories/"+category._id) 
-            h2= category.catName
+    link(rel='stylesheet' type='text/css' href='https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css')
+    link(rel='stylesheet' type='text/css' href='https://pixinvent.com/stack-responsive-bootstrap-4-admin-template/app-assets/css/bootstrap-extended.min.css')
+    link(rel='stylesheet' type='text/css' href='https://pixinvent.com/stack-responsive-bootstrap-4-admin-template/app-assets/fonts/simple-line-icons/style.min.css')
+    link(rel='stylesheet' type='text/css' href='https://pixinvent.com/stack-responsive-bootstrap-4-admin-template/app-assets/css/colors.min.css')
+    link(rel='stylesheet' type='text/css' href='https://pixinvent.com/stack-responsive-bootstrap-4-admin-template/app-assets/css/bootstrap.min.css')
+    link(href='https://fonts.googleapis.com/css?family=Montserrat&display=swap' rel='stylesheet')
+    h3(style="text-align:center") Të gjitha Kategoritë
+        each cat in categories 
+            .container 
+                .table-responsive
+                     table(class="table table-bordered")
+                       thead
+                         tr
+                           th
+                            h1 
+                              span(class="badge bg-danger") ID
+                           th 
+                            h3 Emri
+                           th 
+                            h3 Menaxho
+                       tbody
+                         tr
+                           td
+                            alert(class="alert alert-info")= cat._id             
+                           td
+                            h4= cat.catName
+                           td
+                            form(action="/categories/delete/"+cat._id method="POST")
+                              button(type="submit" class="btn btn-danger" value="Fshi") Fshi

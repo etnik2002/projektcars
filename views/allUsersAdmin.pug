@@ -1,0 +1,102 @@
+extends layout 
+block content 
+
+    
+    h1(style="text-align:center") Përdoruesit : #{allUsers.length}
+    .container 
+        if allUsers.length > 0
+            each user in allUsers 
+                .table-responsive 
+                     table(class="table table-bordered")
+                       thead
+                         tr
+                           th ID
+                           th Emri
+                           th Email
+                           th Roli
+                           th Vendbanimi
+                           th Fshi
+                       tbody
+                         tr
+                           td
+                                h5(class="alert alert-danger")= user._id
+                           td
+                                h5(class="alert alert-info")= user.username
+                           td
+                                h5(class="alert alert-success")= user.email 
+                           td
+                              if user.userRole == 'admin'
+                                h5(class="alert alert-danger")= user.userRole
+                              else
+                                h5(class="alert alert-success")= user.userRole                    
+                           td 
+                                h5(class="alert alert-warning")= user.vendbanimi
+                           td   
+                                form(action="/users/delete/"+user._id method="POST")
+                                    button(type="submit" class="btn btn-danger" value="Fshi") Fshi Përdoruesin
+
+//-     link#bootstrap-css(href='//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css' rel='stylesheet')
+//-     script(src='//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js')
+//-     script(src='//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js')
+//-     link(rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/magnific-popup.css')
+//-     script(src='https://cdnjs.cloudflare.com/ajax/libs/jquery.isotope/3.0.6/isotope.pkgd.js')
+//-     script(src='https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/jquery.magnific-popup.js')
+
+
+//-     table.table.align-middle.mb-0.bg-white
+//-       thead.bg-light
+//-         tr
+//-           th Name
+//-           th Title
+//-           th Status
+//-           th Position
+//-           th Actions
+//-       tbody
+//-         tr
+//-           td
+//-             .d-flex.align-items-center
+//-               img.rounded-circle(src='https://mdbootstrap.com/img/new/avatars/8.jpg' alt='' style='width: 45px; height: 45px')
+//-               .ms-3
+//-                 p.fw-bold.mb-1 John Doe
+//-                 p.text-muted.mb-0 john.doe@gmail.com
+//-           td
+//-             p.fw-normal.mb-1 Software engineer
+//-             p.text-muted.mb-0 IT department
+//-           td
+//-             span.badge.badge-success.rounded-pill.d-inline Active
+//-           td Senior
+//-           td
+//-             button.btn.btn-link.btn-sm.btn-rounded(type='button')
+//-               | Edit
+//-         tr
+//-           td
+//-             .d-flex.align-items-center
+//-               img.rounded-circle(src='https://mdbootstrap.com/img/new/avatars/6.jpg' alt='' style='width: 45px; height: 45px')
+//-               .ms-3
+//-                 p.fw-bold.mb-1 Alex Ray
+//-                 p.text-muted.mb-0 alex.ray@gmail.com
+//-           td
+//-             p.fw-normal.mb-1 Consultant
+//-             p.text-muted.mb-0 Finance
+//-           td
+//-             span.badge.badge-primary.rounded-pill.d-inline Onboarding
+//-           td Junior
+//-           td
+//-             button.btn.btn-link.btn-rounded.btn-sm.fw-bold(type='button' data-mdb-ripple-color='dark')
+//-               | Edit
+//-         tr
+//-           td
+//-             .d-flex.align-items-center
+//-               img.rounded-circle(src='https://mdbootstrap.com/img/new/avatars/7.jpg' alt='' style='width: 45px; height: 45px')
+//-               .ms-3
+//-                 p.fw-bold.mb-1 Kate Hunington
+//-                 p.text-muted.mb-0 kate.hunington@gmail.com
+//-           td
+//-             p.fw-normal.mb-1 Designer
+//-             p.text-muted.mb-0 UI/UX
+//-           td
+//-             span.badge.badge-warning.rounded-pill.d-inline Awaiting
+//-           td Senior
+//-           td
+//-             button.btn.btn-link.btn-rounded.btn-sm.fw-bold(type='button' data-mdb-ripple-color='dark')
+//-               | Edit

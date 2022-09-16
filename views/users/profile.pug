@@ -1,28 +1,153 @@
 extends ../layout 
 block content 
     .container-top 
-        h1.mirsevini Miresevini #{user.username}  
-        p4.emaili Emaili juaj eshte : #{user.email}
-        br
-        p4.phone Numri juaj i telefonit eshte : #{user.phone}
-        br
-        br
+        .container
+            .main-body
+              .row
+                .col-lg-4
+                  .card
+                    .card-body
+                      .d-flex.flex-column.align-items-center.text-center
+                        img.rounded-circle.p-1.bg-primary(src='https://bootdey.com/img/Content/avatar/avatar6.png' alt='USER' width='110')
+                        .mt-3
+                          h4= user.username
+                            br
+                            br
+                            .menaxho-produktet 
+                              a(href="/users/userCompany" class="alert alert-info") Kompanitë e reklamuara
+                          br
+                          br
+                          if user.userRole == 'admin'
+
+                            .krijo-kategori 
+                              a(href="/categories/create" class="alert alert-info" disabled) Shto një markë të re
+                            br
+                            br
+                            .menaxho-produktet 
+                              a(href="/categories" class="alert alert-danger") Menaxho markat e veturave 
+                            br
+                            br
+                            .menaxho-produktet 
+                              a(href="/products/all" class="alert alert-danger") Menaxho të gjitha postimet  
+                            br
+                            br 
+                            .menaxho-produktet 
+                              a(href="/users/allUsers" class="alert alert-danger") Menaxho të gjith përdoruesit 
+                            br
+                            br
+                            .menaxho-produktet 
+                              a(href="/users/adminDashboard" class="alert alert-success") Admin dashboard
+                            br
+                            br
+                            //- .menaxho-produktet 
+                            //-   a(href="/users/userCompany" class="alert alert-warning") Kompanitë tuaja 
+                        br
+                        br
+                        //- a(href="/users/wishlist") Wishlist 
+                        //- if userProd.length >= 5
+                        //-   span(class="alert alert-success" disabled) VIP Account
+
+
+
+                .col-lg-8
+                  .card
+                    .card-body
+                      .row.mb-3
+                        .col-sm-3
+                          h6.mb-0 Emri*
+                        .col-sm-9.text-secondary
+                          input.form-control(type='text' value=user.username disabled style='background-color:white')
+                      .row.mb-3
+                        .col-sm-3
+                          h6.mb-0 Email*
+                        .col-sm-9.text-secondary
+                          input.form-control(type='text' value=user.email disabled style='background-color:white')
+                      .row.mb-3
+                        .col-sm-3
+                          h6.mb-0 Tel*
+                        .col-sm-9.text-secondary
+                          input.form-control(type='text' value=user.phone disabled style='background-color:white')
+                      .row.mb-3
+                        .col-sm-3
+                          h6.mb-0 Vendbanimi*
+                        .col-sm-9.text-secondary
+                          input.form-control(type='text' value=user.vendbanimi disabled style='background-color:white')
+                          br
+                      .row.mb-3
+                        .col-sm-3
+                          h6.mb-0 Roli juaj*
+                        .col-sm-9.text-secondary
+
+                          if user.userRole == 'admin'
+                            span(class="alert alert-success" disabled) ADMIN 
+                          else 
+                            span(class="alert alert-danger" disabled) Përdorues 
+                            form(action="/users/delete/"+user._id method="POST")
+                              button(type="submit" class="btn btn-danger" value="Fshi" id="deleteAccProfile") Fshi llogarin tuaj                      
+                      br
+                      br
+
+
+
+
+                  //- .row
+                  //-   .col-sm-12
+                  //-     .card
+                  //-       .card-body
+                  //-         h5.d-flex.align-items-center.mb-3 Statusi i postimeve
+                  //-         p Progresi juaj:
+                  //-         .progress
+                  //-           .progress-bar(role='progressbar' aria-label='Example with label' style='width: 35%;' aria-valuenow='25' aria-valuemin='0' aria-valuemax='100') 25%
+
+
+       
         //- form(action="/users/delete/" method="delete")
         //-     button.deleteAcc Fshi profilin tend
-        h2.produktet-tuaja Postimet tuaja:
+        h2.produktet-tuaja Postimet tuaja : 
+            span(class="")= userProd.length
         if userProd.length > 0
-            .user-products-list
-                each e in userProd 
-                    .each-product
-                        h2= e.name 
-                        p= 'Cmimi ' + e.price + '€'
-                        p= 'Data e postimit : '  + e.DATA
-                        a(href="/products/"+e._id )
-                            img(src="/images/products/"+e.image, alt=e.name) 
-                        form(action="/products/delete/"+e._id method="POST")
-                            button.danger(type="submit" value="Fshi") Fshi postimin
+
+            .container
+                if userProd.length > 0
+                    each e in userProd 
+                        .table-responsive
+                             table(class="table table-bordered")
+                               thead
+                                 tr
+                                   th ID
+                                   th Emri
+                                   th Data e postimit
+                                   th Fotografi
+                                   th Menaxho
+                               tbody
+                                 tr
+                                   td
+                                        a(href="/products/"+e._id )
+                                            h5(class="alert alert-danger")= e._id
+                                   td
+                                        a(href="/products/"+e._id )
+                                            h5(class="alert alert-info")= e.name
+                                   td
+                                        h5(class="alert alert-success")= e.DATA
+                                   td
+                                    a(href="/products/"+e._id )
+                                       img(src="/images/products/"+e.image[0] id="table-img")
+                                   td 
+                                     form(action="/products/delete/"+e._id method="POST")
+                                       button(type="submit" class="btn btn-danger" value="Fshi") Fshi
+                                     br
+                                     a(href="/products/edit/"+e._id class="btn btn-warning") Ndrysho
+
         else 
             h3  Nuk keni postuar asnje postim!
-            a.profile-krijo-produkt-link(href="/products/create") Kliko ketu per te shtuar nje postim! 
+            a(href="/products/create" class="link-primary") Kliko këtu për të shtuar një postim! 
     
-    
+            br
+            br
+            br
+            script(async='' src='https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1306239200902216' crossorigin='anonymous')
+            // automk
+            ins.adsbygoogle(style='display:block' data-ad-client='ca-pub-1306239200902216' data-ad-slot='3049170019' data-ad-format='auto' data-full-width-responsive='true')
+            script.
+              (adsbygoogle = window.adsbygoogle || []).push({});
+            

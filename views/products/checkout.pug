@@ -1,0 +1,48 @@
+extends ../layout 
+block content
+
+        .row 
+            div(class="col-sm-6 col-md-4 col-md-offset-4 col-sm-offset-6") 
+                h1 Checkout
+                h4 Your total: 70 mkd
+                #charge-error(class="alert alert-danger" hidden) 
+            form(action="/checkout" method="post" id="checkout-form" )  
+                div(class="container")
+                    div(class="row")
+                        div(class="col-xs-12")
+                            div(class="form-group")
+                                label(for="name" ) Name
+                                input( class="form-control" id="name" type="text" name="name" required)
+    
+                        div(class="col-xs-12")
+                            div(class="form-group")
+                                label(for="address" ) Address
+                                input( class="form-control" id="address" type="text" name="address" required)
+                                hr
+                        
+                        div(class="col-xs-12")
+                           div(class="form-group")
+                               label(for="card-name" ) Card Holder Name
+                               input( class="form-control" id="card-name" type="text" name="card-name" required)
+    
+                        div(class="col-xs-12")
+                           div(class="form-group")
+                               label(for="card-number" ) Credit Card Number
+                               input( class="form-control" id="card-number" type="text" name="card-number" required)
+                        
+                        div(class="col-xs-12")
+                            div(class="form-group")
+                               label(for="card-expiry-month" )  Expiration Month
+                               input( class="form-control" id="card-expiry-month" type="text" name="card-expiry-month" required)
+                        
+                        div(class="col-xs-12")
+                           div(class="form-group")
+                              label(for="card-expiry-year" ) Expiration Year
+                              input( class="form-control" id="card-expiry-year" type="text" name="card-expiry-year" required)
+                        
+                        div(class="col-xs-12")
+                           div(class="form-group")
+                              label(for="card-cvc" ) CVC
+                              input( class="form-control" id="card-cvc" type="text" name="card-expiry-year" required)
+                        button.btn.btn-success Buy now
+        script(src="javascript/checkout.js") 

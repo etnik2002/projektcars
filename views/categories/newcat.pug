@@ -1,24 +1,27 @@
 extends ../layout 
 block content 
-    h2.admin Admin dashboard - Create new Car Brand
-    .form-wrapper.create 
-        form(action="/categories/create", method="post" enctype="multipart/form-data") 
-            .form-elem.create 
-                label(for="catName") Emri i markës së veturës
+    
+    h2.admin Admin dashboard - Krijo një markë të re!
+    .container
+        .form-wrapper.create 
+            form(action="/categories/create", method="post" enctype="multipart/form-data") 
+                .form-elem.create 
+                    label(for="catName") Emri i markës së veturës
+                    br
+                    input(type="text" name="catName" required class="form-control")
                 br
-                input(type="text" name="catName" required)
-            br
-            .form-elem.create
-                label(for="catDesc") Përshkrimi i markës 
+                .form-elem.create
+                    label(for="catDesc") Përshkrimi i markës 
+                    br
+                    textarea(type="text" name="catDesc" required class="form-control")
                 br
-                textarea(type="text" name="catDesc" required)
-            br
-            .form-elem.create
-                label(for="catImg")  Zgjidh nje fotografi
+                .form-elem.create
+                    label(for="catImg")  Zgjidh nje fotografi
+                    br
+                    input(type="file" name="catImg"  class="form-control")
                 br
-                input.file(type="file" name="catImg" required)
-            br
-            .form-elem.create
-                input.file(type="submit" value="Krijo Kategori" style={background:'#153e4d', color:'white', padding:'10px'})
-    br
-    //- a(href="/products/create" style={background:'#153e4d', color:'white', padding:'10px'}) Krijo Produkt
+                .form-elem.create
+                    input(type="submit" value="Krijo Kategori" class="btn btn-primary"  class="form-control")
+        br
+        //- a(href="/products/create" style={background:'#153e4d', color:'white', padding:'10px'}) Krijo Produkt
+

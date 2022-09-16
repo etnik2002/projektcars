@@ -1,4 +1,5 @@
 const mongoose = require('mongoose');
+const { db } = require('./models/User');
 require('dotenv').config();
 
 const lidhuMeDb = async () => {
@@ -12,4 +13,5 @@ const lidhuMeDb = async () => {
     process.exit(1);
   }
 };
+
 module.exports = lidhuMeDb;

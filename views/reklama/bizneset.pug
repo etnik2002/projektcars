@@ -1,0 +1,141 @@
+extends ../layout 
+block content
+
+    section.wrapper
+      .container-fostrap
+        div
+          img.fostrap-logo( style="width:10%;" src='https://scontent.fskp4-1.fna.fbcdn.net/v/t39.30808-6/297088815_2344142055737091_3464881371090965184_n.jpg?_nc_cat=107&ccb=1-7&_nc_sid=8bfeb9&_nc_ohc=f3OeIxBgItoAX-Y6KdH&_nc_ht=scontent.fskp4-1.fna&oh=00_AT8vjiXdvNSH4sMurZsYEIfAG7Z2VDPk5wPFcq1KzvIFVw&oe=631F793E')
+          h1.heading
+            | Të gjitha kompanitë e regjistruara!
+        .content
+          .container
+            .row
+              each b in teGjithaBizneset
+                .col-xs-12.col-sm-4
+                  .card
+                    a.img-card(href='')
+                      img(src='/images/business/'+b.businessImage)
+                    .card-content
+                      h4.card-title
+                        a(href='')
+                          | #{b.businessName}
+                      h4.card-title
+                        h5
+                          | Pronari : #{b.owner}
+                      h4.card-title
+                        h5
+                          | Tel. Pronarit : #{b.ownerPhone}
+                      h4.card-title
+                        h5
+                          | Tel. Kompanisë : #{b.businessPhone}
+                      h4.card-title
+                        h5
+                          | Emaili i Kompanisë : #{b.businessEmail}
+                      h4.card-title
+                        h5
+                          | Lokacioni : #{b.businessLocation}
+                      h4.card-title
+                        h5
+                          | Adresa e saktë : #{b.adresa}
+                      h4.card-title
+                        h5
+                          | Ueb sajti i Kompanisë : 
+                          a(href=b.website target="_blank") #{b.website}
+                      h4.card-title
+                        h5
+                          | Data e regjistrimit : #{b.DATA}
+                      hr
+                      textarea#companyDesc(disabled)
+                        | Përshkrimi : #{b.businessDescription}
+
+                    //- .card-read-more
+                    //-   a.btn.btn-link.btn-block(href='http://www.fostrap.com/2016/03/bootstrap-3-carousel-fade-effect.html')
+                    //-     | Read More
+
+
+
+
+        //templati per raba
+
+        //- .container
+        //-     .row.m-0
+        //-       .col-lg-7.pb-5.pe-lg-5
+        //-         .row
+        //-           .col-12.p-5
+        //-             img(src='https://www.freepnglogos.com/uploads/honda-car-png/honda-car-upcoming-new-honda-cars-india-new-honda-3.png' alt='')
+        //-           .row.m-0.bg-light
+        //-             .col-md-4.col-6.ps-30.pe-0.my-4
+        //-               p.text-muted Mileage
+        //-               p.h5
+        //-                 | 25000
+        //-                 span.ps-1 Km
+        //-             .col-md-4.col-6.ps-30.my-4
+        //-               p.text-muted Transmission
+        //-               p.h5.m-0 Manual
+        //-             .col-md-4.col-6.ps-30.my-4
+        //-               p.text-muted Drive unit
+        //-               p.h5.m-0 Front
+        //-             .col-md-4.col-6.ps-30.my-4
+        //-               p.text-muted Body
+        //-               p.h5.m-0 Coupe
+        //-             .col-md-4.col-6.ps-30.my-4
+        //-               p.text-muted Color
+        //-               p.h5.m-0 White
+        //-             .col-md-4.col-6.ps-30.my-4
+        //-               p.text-muted Daily UI
+        //-               p.h5.m-0 #002
+        //-       .col-lg-5.p-0.ps-lg-4
+        //-         .row.m-0
+        //-           .col-12.px-4
+        //-             .d-flex.align-items-end.mt-4.mb-2
+        //-               p.h4.m-0
+        //-                 span.pe-1 ZAZ
+        //-                 span.pe-1 966
+        //-                 span.pe-1 B
+        //-               p.ps-3.textmuted 1L
+        //-             .d-flex.justify-content-between.mb-2
+        //-               p.textmuted Qty
+        //-               p.fs-14.fw-bold 1
+        //-             .d-flex.justify-content-between.mb-2
+        //-               p.textmuted Subtotal
+        //-               p.fs-14.fw-bold
+        //-                 span.fas.fa-dollar-sign.pe-1
+        //-                 | 1,450
+        //-             .d-flex.justify-content-between.mb-2
+        //-               p.textmuted Shipping
+        //-               p.fs-14.fw-bold Free
+        //-             .d-flex.justify-content-between.mb-2
+        //-               p.textmuted Promo code
+        //-               p.fs-14.fw-bold
+        //-                 | -
+        //-                 span.fas.fa-dollar-sign.px-1
+        //-                 | 100
+        //-             .d-flex.justify-content-between.mb-3
+        //-               p.textmuted.fw-bold Total
+        //-               .d-flex.align-text-top
+        //-                 span.fas.fa-dollar-sign.mt-1.pe-1.fs-14
+        //-                 span.h4 1,350
+        //-           .col-12.px-0
+        //-             .row.bg-light.m-0
+        //-               .col-12.px-4.my-4
+        //-                 p.fw-bold Payment detail
+        //-               .col-12.px-4
+        //-                 .d-flex.mb-4
+        //-                   span
+        //-                     p.text-muted Card number
+        //-                     input.form-control(type='text' value='4485 6888 2359 1498' placeholder='1234 5678 9012 3456')
+        //-                   .w-100.d-flex.flex-column.align-items-end
+        //-                     p.text-muted Expires
+        //-                     input.form-control2(type='text' value='01/2020' placeholder='MM/YYYY')
+        //-                 .d-flex.mb-5
+        //-                   span.me-5
+        //-                     p.text-muted Cardholder name
+        //-                     input.form-control(type='text' value='David J.Frias' placeholder='Name')
+        //-                   .w-100.d-flex.flex-column.align-items-end
+        //-                     p.text-muted CVC
+        //-                     input.form-control3(type='text' value='630' placeholder='XXX')
+        //-             .row.m-0
+        //-               .col-12.mb-4.p-0
+        //-                 .btn.btn-primary
+        //-                   | Purchase
+        //-                   span.fas.fa-arrow-right.ps-2

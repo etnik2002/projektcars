@@ -1,19 +1,56 @@
-
 extends ../layout 
 block content 
-    h2.regjistrohu Identifikohu
-    .form-wrapper 
-        form(action="/users/login", method="post") 
-            .form-elem-login
-                label(for="email" )   
-                input(type="email" name="email" placeholder="Emaili juaj *" required)
+    section.login
+      .login_box
+        .left
+          .top_link
+            a(href='/')
+              img.signup(src='https://play-lh.googleusercontent.com/dZBeImmcEAMzloaBbymEWDeYz4x-oiF3r6QgaK1xjmM4PYARRaYyzJu3jZbZjRu9KQ' alt='')
+              | Ktheu pas
+          .contact
+            form(action="/users/login", method="post" class="login-form")
+                label(for="email") 
+                br
+                input(type="email" name="email" placeholder="Emaili juaj *" required class="form-control") 
+                br
+
+                label(for="password") 
+                br
+                input(type="password" name="password" placeholder="Passwordi juaj *" required class="form-control") 
+                br
+
+                input.submit(type="submit" value="Identifikohu" id="test" class="btn btn-success")
+                br
+                br
+                a(href="/users/register" id="testlink") Nuk je regjistruar akoma? Regjistrohu ketu
+  
+        .right
+          .right-text
+
+
+            h2 Auto MK
+            h5 Ueb faqe per shit blerjen e veturave
             br
-            .form-elem-login
-                label(for="password")  
-                input(type="password" name="password" placeholder="Passwordi juaj *" required)
-            br
-            .form-elem-login-submit
-                input(type="submit" value="Login")
-    br
-    .link-navigim
-        a(href="/users/register") Nuk je regjistruar akoma? Regjistrohu ketu
+            //- a(href="/users/register") Nuk je regjistruar akoma? Regjistrohu ketu
+
+
+    //- .container.login 
+    //-     form(action="/users/login", method="post" class="login-form")
+    //-         label(for="email") 
+    //-         br
+    //-         input(type="email" name="email" placeholder="Emaili juaj *" required class="form-control") 
+    //-         br
+
+    //-         label(for="password") 
+    //-         br
+    //-         input(type="password" name="password" placeholder="Passwordi juaj *" required class="form-control") 
+    //-         br
+
+    //-         input(type="submit" value="Identifikohu" class="btn btn-success")
+    //-         br
+    //-         br
+    //-         a(href="/users/register") Nuk je regjistruar akoma? Regjistrohu ketu
+  
+  
+    
+    

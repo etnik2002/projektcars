@@ -1,24 +1,95 @@
+//- extends ../layout
+//- block content 
+//-     head
+//-         link(rel="stylesheet", href="/public/css/style.css")
+
+//-     section.login
+//-       .login_box
+//-         .left
+//-           .top_link
+//-             a(href='#')
+//-               img.signup(src='https://play-lh.googleusercontent.com/dZBeImmcEAMzloaBbymEWDeYz4x-oiF3r6QgaK1xjmM4PYARRaYyzJu3jZbZjRu9KQ' alt='')
+//-               | Return home
+//-           .contact
+//-             form(action='')
+//-               h3 SIGN IN
+//-               input(type='text' placeholder='USERNAME')
+//-               input(type='text' placeholder='PASSWORD')
+//-               button.submit LET&apos;S GO
+//-         .right
+//-           .right-text
+//-             h2 Auto MK
+//-             h5 Uew faqe per shit blerjen e veturave
+//-         //-   .right-inductor
+//-         //-     img(src='https://play-lh.googleusercontent.com/dZBeImmcEAMzloaBbymEWDeYz4x-oiF3r6QgaK1xjmM4PYARRaYyzJu3jZbZjRu9KQ' alt='')
+
+
+
+
+//- extends ../layout 
+//- block content 
+//-     h2.regjistrohu Regjistrohu këtu!
+//-     .container.login 
+//-         form(action="/users/register", method="post" class="login-form")
+//-             label(for="username")  
+//-             input(type="text" name="username" placeholder="Emri dhe mbiemri juaj" required class="form-control")
+//-             br
+
+//-             label(for="phone")  
+//-             input(type="text" name="phone" placeholder="Numri i telefonit" required class="form-control")
+//-             br
+//-             label(for="vendbanimi")  
+//-             input(type="text" name="vendbanimi" placeholder="Vendbanimi" required class="form-control")
+//-             br
+//-             label(for="email")  
+//-             input(type="email" name="email" placeholder="Emaili juaj" required class="form-control")
+//-             br
+//-             label(for="password")  
+//-             input(type="password" name="password" placeholder="Passwordi juaj" required class="form-control")
+//-             br
+//-             input(type="submit" value="Regjistrohu" class="btn btn-success")
+//-             br
+//-             br
+//-             a(href="/users/login") Jeni i  regjistruar? identifikohu ketu
+//-             br
+
+
 extends ../layout 
 block content 
-    h2.regjistrohu Regjistrohu tani
-    .form-wrapper 
-        form(action="/users/register", method="post") 
-            .form-elem-login
-                label(for="username")  
-                input(type="text" name="username" placeholder="Emri dhe mbiemri juaj" required)
-            .form-elem-login
-                label(for="phone")  
-                input(type="text" name="phone" placeholder="Numri i telefonit" required)
-            .form-elem-login
-                label(for="email")  
-                input(type="email" name="email" placeholder="Emaili juaj" required)
-            .form-elem-login
-                label(for="password")  
-                input(type="password" name="password" placeholder="Passwordi juaj" required)
-            .form-elem-login-submit
-                input(type="submit" value="Regjistrohu")
-        br
-        a(href="/users/login") Jeni i  regjistruar? identifikohu ketu
+    section.login
+      .login_box
+        .left
+          .top_link
+            a(href='/')
+              img.signup(src='https://play-lh.googleusercontent.com/dZBeImmcEAMzloaBbymEWDeYz4x-oiF3r6QgaK1xjmM4PYARRaYyzJu3jZbZjRu9KQ' alt='')
+              | Ktheu pas
+          .contact
+             form(action="/users/register", method="post" class="login-form")
+                 label(for="username")  
+                 input(type="text" name="username" placeholder="Emri dhe mbiemri juaj" required class="form-control")
+                 br 
+                 label(for="phone")  
+                 input(type="text" name="phone" placeholder="Numri i telefonit" required class="form-control")
+                 br
+                 label(for="vendbanimi")  
+                 input(type="text" name="vendbanimi" placeholder="Vendbanimi" required class="form-control")
+                 br
+                 label(for="email")  
+                 input(type="email" name="email" placeholder="Emaili juaj" required class="form-control")
+                 br
+                 label(for="password")  
+                 input(type="password" name="password" placeholder="Passwordi juaj" required class="form-control")
+                 br
+                 input(type="submit" value="Regjistrohu" class="btn btn-success" id="test")
+                 a(href="/users/login" id="testlink" ) Jeni i  regjistruar? identifikohu ketu
+                 br
+                 br
+                 br
+  
+        .right
+          .right-text
 
 
-    
+            h2 Auto MK
+            h5 Uew faqe per shit blerjen e veturave
+            br

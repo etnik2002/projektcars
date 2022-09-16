@@ -176,7 +176,7 @@
     display: block;
     position: relative;
     width: 480px;
-    left: 36%;
+    left: 13%;
     margin: 0 auto;
   }
   h4.shitesi {
@@ -305,10 +305,10 @@
   .form-elem.create.zgjidh option:nth-child(even) {
     background: lightgray;
   }
-
-  /* .container input {
-        border-radius: 20px;
-      } */
+  /* 
+  .container input {
+    border-radius: 20px;
+  } */
   a.link {
     border-bottom: 2px solid black;
     text-decoration: none;
@@ -449,5 +449,15 @@
   }
   a.profile-krijo-produkt-link:hover {
     color: blue;
+  }
+  .container-home {
+    display: block;
+  }
+  .foto-banner img {
+    display: block;
+  }
+  .foto-falas img {
+    display: block;
+    border-radius: 20px;
   }
 }

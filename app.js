@@ -7,12 +7,12 @@ const path = require('path');
 const User = require('./controllers/User-Controller');
 require('dotenv').config();
 //importojm routes
-PORT = process.env.PORT;
+const PORT = process.env.PORT;
+
+const fs = require('fs');
 
 const Product = require('./models/Product');
-const Qyteti = require('./models/Qyteti');
-const Transmetuesi = require('./models/Transmetuesi');
-
+const Reklama = require('./models/Reklamo');
 //import and connect to database
 const lidhuMeDb = require('./db');
 lidhuMeDb();
@@ -20,9 +20,10 @@ lidhuMeDb();
 const userRoutes = require('./routes/users.js');
 const categoryRoutes = require('./routes/categories');
 const productRoutes = require('./routes/products');
-const qytetiRoutes = require('./routes/qyteti');
-const transRoutes = require('./routes/transmetuesi');
+const StripeRoutes = require('./routes/stripe');
+const reklamaRoutes = require('./routes/reklamo');
 const { kerkohetIdentifikimi, isAdmin } = require('./middleware/auth');
+// const { dashboard } = require('./controllers/User-Controller');
 
 // middlewares
 
@@ -61,9 +62,7 @@ app.set('view engine', 'pug');
 app.use('/users', userRoutes);
 app.use('/categories', categoryRoutes);
 app.use('/products', productRoutes);
-app.use('/qyteti', isAdmin, qytetiRoutes);
-app.use('/trans', transRoutes);
-// app.use('/menjaci', transmetuesiRoutes);
+app.use('/reklamo', reklamaRoutes);
 
 app.get('/', async (req, res) => {
   const isFeatured = await Product.find({ isFeatured: true });
@@ -88,6 +87,18 @@ app.post('getProds', (req, res) => {
 app.get('/mk', (req, res) => {
   // res.send('<h1>translate to MK</h1>');
   // res.render('mk');
+});
+
+// app.get('/dashboard', (req, res) => {
+//   res.render('admin');
+// });
+
+app.get('/adminat', (req, res) => {
+  res.render('admin');
+});
+
+app.get('/careers', (req, res) => {
+  res.render('careers');
 });
 
 app.listen(PORT, () => {

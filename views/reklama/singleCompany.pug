@@ -1,0 +1,16 @@
+extends ../layout
+block content 
+    .product-wrapper-single
+        .single-prod-card 
+            h3=singleCompany.businessName
+
+            h3.pershkrimi= 'Përshkrimi : ' + singleCompany.businessDescription 
+            h3.shitesi= 'Qyteti : ' + singleCompany.businessLocation
+            h3.tel= 'Tel : ' +  singleCompany.businessPhone
+            //- h3.shitesi= 'Kilometra te kaluara : ' + singleProduct.killometrazha + ' km'
+            //- h3.shitesi= 'Viti i prodhimit : ' + singleProduct.year
+            //- h3.shitesi= 'Fuqia e motorrit : ' + singleProduct.hp + ' hp'
+            //- h3.shitesi= 'Transmetuesi : ' + singleProduct.menjachi
+            //- h3.shitesi= 'Kubikazha : ' + singleProduct.kubikazha + ' cc'
+
+          

@@ -1,6 +1,5 @@
 const router = require('express').Router();
-const { kerkohetIdentifikimi } = require('../middleware/auth');
-const { krijoQytet } = require('../controllers/Qyteti-Controller');
+const { kerkohetIdentifikimi, isAdmin } = require('../middleware/auth');
 
 //import multer middleware
 const { productUpload } = require('../middleware/multer');
@@ -15,10 +14,16 @@ const {
   postEditSingle,
   postDeleteSingle,
   searchedProducts,
+  allProdsAdmin,
+  adminDeleteAllPosts,
+  getAdminEditPost,
+  postAdminEditPost,
 } = require('../controllers/Product-Controller');
 
 //url is : http://localhost:5000/products
 router.get('/search', searchedProducts);
+
+router.get('/all', isAdmin, allProdsAdmin);
 
 //get all products
 
@@ -28,13 +33,13 @@ router.get('/', getProducts);
 router.get('/create', kerkohetIdentifikimi, getCreateProduct);
 
 //post create new product
-router.post('/create', productUpload.single('image'), postCreateProduct);
+router.post('/create', productUpload.array('image', 12), postCreateProduct);
 
 //get single product page
 
 router.get('/:id', getSingleProduct);
 
-//edit singleh pdoduct
+//edit single pdoduct
 
 router.get('/edit/:id', getEditSingle);
 //edit product
@@ -45,5 +50,11 @@ router.post('/edit/:id', postEditSingle);
 router.post('/delete/:id', postDeleteSingle);
 
 //search
+
+router.post('/deleteAll/:id', adminDeleteAllPosts);
+
+router.get('/adminEdit/:id', getAdminEditPost);
+
+router.post('adminEdit/:id', postAdminEditPost);
 
 module.exports = router;

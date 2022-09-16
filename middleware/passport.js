@@ -15,25 +15,35 @@ module.exports = function (passport) {
           return done(err);
         }
         if (!user) {
-          return done(null, false, { message: 'emaili nuk egziston' });
+          return done(
+            null,
+            false,
+            { message: 'emaili nuk egziston' },
+            console.log('nuk egziston emaili')
+          );
         }
         bcrypt.compare(password, user.password, (err, res) => {
           if (err) {
             return done(err);
           }
           if (res === false) {
-            return done(null, false, {
-              message: 'te dhena te gabuara. provo perseri!',
-            });
+            return done(
+              null,
+              false,
+              {
+                message: 'te dhena te gabuara. provo perseri!',
+              },
+              console.log('te dhena te gabuara. provo perseri!')
+            );
           }
 
-          return done(null, user);
+          return done(null, user, console.log('useri u xhet'));
         });
       });
     })
   );
 
-  //serialize dhe deserialize user
+  //serialize ene deserialize user
 
   passport.serializeUser(function (user, done) {
     done(null, user.id);

@@ -1,0 +1,36 @@
+extends ../layout
+block content 
+    
+    .container 
+        if userCompany.length > 0
+          each c in userCompany
+            .table-responsive
+              table(class="table table-bordered")
+                thead
+                  tr
+                    th ID
+                    th Emri
+                    th Data e postimit
+                    th Fotografi
+                    th Menaxho
+                tbody
+                  tr
+                    td
+                         a(href="/reklamo/teGjitha/" )
+                             h5(class="alert alert-danger")= c._id
+                    td
+                         a(href="/reklamo/teGjitha/")
+                             h5(class="alert alert-info")= c.businessName
+                    td
+                         h5(class="alert alert-success")= c.DATA
+                    //- td
+                    //-  a(href="/users/userCompany/"+c._id )
+                    //-     img(src="/images/products/"+c.image[0] id="table-img")
+                    td 
+                      form(action="/users/deleteCompany/"+c._id method="POST")
+                        button(type="submit" class="btn btn-danger" value="Fshi") Fshi
+                      br
+                      a(href="/users/userCompany/"+c._id class="btn btn-warning" disabled) Ndrysho
+        else 
+            h1 Nuk keni reklamuar asnjë kompani. 
+            a(href="/reklamo/biznes") Kliko këtu për të reklamuar kompaninë tuaj ! 

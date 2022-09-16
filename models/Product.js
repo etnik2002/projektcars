@@ -12,6 +12,7 @@ const productSchema = mongoose.Schema(
       ref: 'Category',
       required: true,
     },
+
     User: {
       type: mongoose.Schema.Types.ObjectId,
       ref: 'User',
@@ -32,7 +33,7 @@ const productSchema = mongoose.Schema(
       required: true,
     },
     image: {
-      type: String,
+      type: Array,
       required: true,
     },
     isFeatured: {
@@ -58,7 +59,7 @@ const productSchema = mongoose.Schema(
       type: Number,
     },
     killometrazha: {
-      type: Number,
+      type: String,
     },
     transmetuesi: {
       type: String,

@@ -1,0 +1,27 @@
+extends layout 
+block content
+    br
+    .container 
+        button(class='btn btn-warning')
+            a(href="/users/adminDashboard" style=('color:white')) Kthehu pas
+    .container 
+        h3 Adminat : #{ADMINAT.length}
+        each adm,i in ADMINAT 
+            .table-responsive 
+                table(class="table table-bordered")
+                  thead
+                    tr
+                      th foto
+                      th Admin ID
+                      th Emri
+                      th Emaili
+                  tbody
+                    tr
+                      td 
+                        img.rounded-circle.p-1.bg-primary(src='https://bootdey.com/img/Content/avatar/avatar6.png' alt='USER' width='110')
+                      td
+                           h5(class="alert alert-danger")= adm._id
+                      td
+                           h5(class="alert alert-info")= adm.username
+                      td
+                           h5(class="alert alert-success")= adm.email 

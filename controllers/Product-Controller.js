@@ -4,8 +4,7 @@ const User = require('../models/User');
 const Category = require('../models/Category');
 const Product = require('../models/Product');
 const { Query } = require('mongoose');
-const { krijoQytet } = require('../controllers/Qyteti-Controller');
-const Qyteti = require('../models/Qyteti');
+const Reklama = require('../models/Reklamo');
 
 module.exports = {
   getProducts: async (req, res) => {
@@ -14,12 +13,35 @@ module.exports = {
       .lean();
     res.render('products/index', { allProducts });
   },
+  allProdsAdmin: async (req, res) => {
+    const allProducts = await Product.find({})
+      .sort({ createdAt: 'desc' })
+      .lean();
+    res.render('admin', { allProducts });
+  },
+  adminDeleteAllPosts: async (req, res) => {
+    console.log(req.params);
+    try {
+      let produkti = await Product.findById(req.params.id).lean();
+      if (req.user.userRole === 'admin') {
+        console.log({ produkti });
+        if (!produkti) {
+          res.redirect('/products?deleted=JO');
+        }
+        await Product.deleteOne({ _id: req.params.id });
+        res.redirect('/products?deleted=PO');
+      }
+    } catch (error) {
+      console.log(error);
+      res.redirect('users/profile?deleted=JO');
+    }
+  },
   getCreateProduct: async (req, res) => {
     const categories = await Category.find({}).lean();
     res.render('products/create', { categories });
   },
   postCreateProduct: async (req, res) => {
-    function addZero(n) {
+    function shtoZero(n) {
       return (parseInt(n, 10) < 10 ? '0' : '') + n;
     }
 
@@ -68,10 +90,12 @@ module.exports = {
         break;
     }
 
-    const DATA = `${addZero(dita)} ${addZero(muaji)} - ${addZero(
+    const DATA = `${shtoZero(dita)} ${shtoZero(muaji)} - ${shtoZero(
       sahati
-    )}:${addZero(minuta)}`;
-    const { name, category, price, description } = req.body;
+    )}:${shtoZero(minuta)}`;
+
+    const { name, category, price, description, notification } = req.body;
+
     console.log(req.user);
     console.log(req.body);
     console.log(req.file);
@@ -84,8 +108,15 @@ module.exports = {
       killometrazha,
       hp,
     } = req.body;
-
+    console.log(req.files);
     try {
+      const fotot = [];
+      req.files.forEach((x) => {
+        fotot.push(x.filename);
+      });
+
+      const categories = await Category.find({}).lean();
+
       const newProduct = new Product({
         name,
         category,
@@ -100,13 +131,21 @@ module.exports = {
         menjachi,
         killometrazha,
         DATA,
-        image: req.file.filename,
+        // image: process.filename,
+        // image: req.files.filename,
+        image: fotot,
         User: req.user._id,
         seller: req.user.username,
         phone: req.user.phone,
       });
+
       const savedProduct = await newProduct.save();
       console.log(savedProduct);
+
+      // User.notification = `You have a new post ${savedProduct.name} `;
+
+      // console.log(User.notification);
+
       res.redirect('/products/');
     } catch (error) {
       if (error) {
@@ -118,38 +157,95 @@ module.exports = {
   getSingleProduct: async (req, res) => {
     console.log('Product ID : ' + req.params.id);
     const singleProduct = await Product.findById({ _id: req.params.id });
+    console.log(singleProduct);
     res.render('products/singleproduct', { singleProduct });
   },
-  getEditSingle: async (req, res) => {
-    let produkti = await Product.findOne({ _id: req.params.id }).lean();
-    if (!produkti) {
-      return res.redirect('/');
-    }
-    if (produkti.User != req.user.id) {
-      res.redirect('/');
+
+  getAdminEditPost: async (req, res) => {
+    if (req.user.userRole == 'admin') {
+      let produkti = await Product.findOne({ _id: req.params.id }).lean();
+      if (!produkti) {
+        return res.redirect('/?ska=true');
+      } else {
+        res.render('products/edit', { prod: produkti });
+      }
     } else {
-      res.render('products/edit', { prod: produkti });
+      return;
     }
   },
-  postEditSingle: async (req, res) => {
+  postAdminEditPost: async (req, res) => {
     try {
       const prodUpdate = {
-        name: req.body.name,
-        price: req.body.price,
-        description: req.body.description,
-        location: req.body.location,
+        name: req.body.name, //
+        price: req.body.price, //
+        description: req.body.description, //
+        kubikazha: req.body.kubikazha, //
+        location: req.body.location, //
+        year: req.body.year, //
+        hp: req.body.hp, //
+        karburanti: req.body.karburanti, //
+        killometrazha: req.body.killometrazha, //
+        transmetuesi: req.body.transmetuesi, //
       };
 
       let prodId = {
         _id: req.params.id,
       };
 
-      const updateProd = await Product.findOneAndUpdate({ prodId, prodUpdate });
+      const updateProd = await Product.findOneAndUpdate(prodId, prodUpdate);
 
       if (updateProd) {
         res.redirect('/users/profile?updated=PO');
+        console.log('u bo update');
       } else {
         res.redirect('/users/profile?updated=JO');
+        console.log('nuk u bo update');
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  },
+  getEditSingle: async (req, res) => {
+    let produkti = await Product.findOne({ _id: req.params.id }).lean();
+
+    if (!produkti) {
+      return res.redirect('/?nuk-egzistion');
+    }
+
+    if (produkti.User == req.user.id || req.user.userRole === 'admin') {
+      res.render('products/edit', { prod: produkti });
+    } else {
+      res.redirect('/');
+      console.log('posti nuk osh i joti');
+    }
+  },
+  postEditSingle: async (req, res) => {
+    try {
+      const prodUpdate = {
+        name: req.body.name, //
+        price: req.body.price, //
+        description: req.body.description, //
+        kubikazha: req.body.kubikazha, //
+        location: req.body.location, //
+        year: req.body.year, //
+        hp: req.body.hp, //
+        karburanti: req.body.karburanti, //
+        killometrazha: req.body.killometrazha, //
+        transmetuesi: req.body.transmetuesi, //
+      };
+
+      let prodId = {
+        _id: req.params.id,
+      };
+
+      const updateProd = await Product.findOneAndUpdate(prodId, prodUpdate);
+
+      if (updateProd) {
+        res.redirect('/users/profile?updated=PO');
+        console.log('u bo update');
+      } else {
+        res.redirect('/users/profile?updated=JO');
+        console.log('nuk u bo update');
       }
     } catch (error) {
       console.log(error);
@@ -185,13 +281,10 @@ module.exports = {
         try {
           res.render('products/index', { allProducts: newSearch });
         } catch (err) {
-          if (query === '') {
-            res.redirect('/');
-          }
           if (err) {
             res.redirect('errors/404');
           }
-          if (allProducts.length <= 0) {
+          if (newSearch.length < 0) {
             res.redirect('/');
           }
         }

@@ -491,7 +491,10 @@
   .container.containerProfile {
     width: 100%;
   }
-
+  #adminAlert {
+    position: relative;
+    top: 15px;
+  }
   .container.containerProfile.singleProd {
     width: 200%;
   }

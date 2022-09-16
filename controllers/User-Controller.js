@@ -96,8 +96,7 @@ module.exports = {
   },
   allUsersLength: async (req, res) => {
     const allUsers = await User.find({}).lean();
-    // res.send(`${allUsers.length}`);
-    // console.log(allUsers.length + ' perdorues te regjistruar');
+
     res.render('allUsersAdmin', { allUsers });
   },
   getUserCompany: async (req, res) => {
@@ -126,8 +125,10 @@ module.exports = {
   },
   getWishlist: async (req, res) => {
     const user = await User.find({ _id: req.user.id });
+    const product = await Product.find({ _id: req.user.wishlistId });
+    console.log(req.body.wishlistId, 'wishlistid');
     console.log(user);
-    res.render('users/wishlist', { user });
+    res.render('users/wishlist', { user, product });
   },
   postWishlist: async (req, res) => {
     try {
@@ -135,24 +136,20 @@ module.exports = {
       const wishList = [];
       const user = await User.find({ _id: req.user.id }).lean();
       const product = await Product.findById(req.params.id).lean();
-      const wishlistId = req.user.wishlistId;
-      console.log('req.params = ' + req.params);
       console.log({ user });
       console.log({ product });
       wishList.push({ product });
-      User.findOneAndUpdate(
-        { _id: req.user._id },
-        { $set: { wishlistId } },
+      const saveUser = await User.findOneAndUpdate(
+        { _id: req.user.id },
+        { $set: { wishlistId: product._id } },
         { new: true }
       );
-      await User.save();
-      console.log('req user wishlistid ' + req.user.wishlistId);
-      res.redirect(
-        '/users/wishlist?added-to-wishlist=sukses?car-id=' + product._id
-      );
+      await saveUser.save();
+      console.log('req user wishlistid ');
+      res.redirect('/users/wishlist?added-to-wishlist=true');
     } catch (error) {
       console.log(error);
-      res.redirect('/products?added-to-wishlist=deshtim');
+      res.redirect('/products?added-to-wishlist=false');
     }
   },
   getAdminDashboard: async (req, res) => {

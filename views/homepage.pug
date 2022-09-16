@@ -73,10 +73,20 @@ block content
           
       .column.footer
         h3.footer Dërgo një mesazh!
-        form.footer(action='')
-          input.footer(type='text' placeholder="" required style="color:white")
-          button.footer(type='button') 
-             a.bardh(href=`mailto:etnikz2002@gmail.com`) Dërgo
+        form(action='https://formspree.io/f/mqkjpqyj' method='POST' )
+          label()
+            | Emaili juaj*
+            input(type='email' name='name' class="form-control" required)
+          br
+          label
+            | Mesazhi juaj*:
+            br
+            textarea(name='message' class="form-control" required)
+          // your other form fields go here
+          br
+          button(type='submit' class="btn btn-success") Dërgo
+
+            //-  a.bardh(href=`mailto:etnikz2002@gmail.com`) Dërgo
     //- if allUsers.length > 0
     //-   p= allUsers.length
     .bottom.footer

@@ -1,27 +1,32 @@
 extends ../layout 
 block content
-    
-    form.search(action="/products/search" method="GET")
-        input.search(type="text", name="search" placeholder="Kerko vetura..." action="/products/"+search)
-        button.search(type="button") Kerko
-    if allProducts.length > 0
-        .product-wrapper.flex-col
-            each e in allProducts 
-                .single-prod-card 
-                    a(href="/products/"+e._id)     
-                        h3.product-name=e.name
-                    a(href="/products/"+e._id)
-                        img(src="/images/products/"+e.image[0], alt=e.name) 
-                    h4.data= 'Data e postimit : ' + e.DATA
-                    h4.price Cmimi : #{e.price} €
-                    h4.shitesi Shitesi : #{e.seller}
-                    h4.tel Tel : #{e.phone} 
-                    h4.location= 'Lokacioni : ' + e.location
-                    //- h3 Kategoria : #{e.category}
-                    //- form(action="/users/wishlist/"+e._id method="POST")
-                    //-     button(type="submit" name="wishlistId") Add to Wishlist
+    html
+        head
 
-                    hr
-    else 
-        h3.zero-produkte Nuk ka asnje produkt. Behu i pari qe do te shtoj nje produkt!   
-            a(href="/products/create") Kliko ketu per te shtuar nje produkt! 
+        form.search(action="/products/search" method="GET")
+            input.search(type="text", name="search" placeholder="Kerko vetura..." action="/products/"+search)
+            button.search(type="button") Kerko
+        if allProducts.length > 0
+            .product-wrapper.flex-col
+                each e in allProducts 
+                    .single-prod-card 
+                        a(href="/products/"+e._id)     
+                            h3.product-name=e.name
+                        a(href="/products/"+e._id)
+                            img(src="/images/products/"+e.image[0], alt=e.name) 
+                        h4.data= 'Data e postimit : ' + e.DATA
+                        h4.price Cmimi : #{e.price} €
+                        h4.shitesi Shitesi : #{e.seller}
+                        h4.tel Tel : #{e.phone} 
+                        h4.location= 'Lokacioni : ' + e.location
+                        //- h3 Kategoria : #{e.category}
+                        form(action="/users/wishlist/"+e._id method="POST")
+                            button(type="submit" name="wishlistId" class="btn btn-success") Shto në Wishlist
+                        
+                        hr
+        else 
+            h3.zero-produkte Nuk ka asnje produkt. Behu i pari qe do te shtoj nje produkt!   
+                a(href="/products/create") Kliko ketu per te shtuar nje produkt! 
+    
+        
+                

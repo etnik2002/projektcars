@@ -8,7 +8,10 @@ block content
                   .card
                     .card-body
                       .d-flex.flex-column.align-items-center.text-center
-                        img.rounded-circle.p-1.bg-primary(src='https://bootdey.com/img/Content/avatar/avatar6.png' alt='USER' width='110')
+                        if user.userRole == 'admin'
+                          img.rounded-circle.p-1.bg-primary(src='https://cdn0.iconfinder.com/data/icons/man-user-human-profile-avatar-business-person/100/09B-1User-512.png' alt='USER' width='110')
+                        if user.userRole == 'user'
+                          img.rounded-circle.p-1.bg-primary(src='https://bootdey.com/img/Content/avatar/avatar6.png' alt='USER' width='110')
                         .mt-3
                           h4= user.username
                             br
@@ -18,7 +21,6 @@ block content
                           br
                           br
                           if user.userRole == 'admin'
-
                             .krijo-kategori 
                               a(href="/categories/create" class="alert alert-info" disabled) Shto një markë të re
                             br
@@ -41,11 +43,10 @@ block content
                             br
                             //- .menaxho-produktet 
                             //-   a(href="/users/userCompany" class="alert alert-warning") Kompanitë tuaja 
-                        br
-                        br
-                        //- a(href="/users/wishlist") Wishlist 
-                        //- if userProd.length >= 5
-                        //-   span(class="alert alert-success" disabled) VIP Account
+                            br
+                            br
+                        a(href="/users/wishlist" class="badge badge-primary" style=("margin-bottom:5px")) Wishlist
+
 
 
 

@@ -16,6 +16,7 @@ block content
                 h4.text-uppercase(style=("font-size:x-large")) Statistikat e faqes
                 p(style=("font-size:x-large")) Statistikat e regjistrimit të veturave, përdoruesve  dhe kompanive
           h2 Veturat
+            hr
             .row
               .col-xl-3.col-sm-6.col-12
                 .card
@@ -37,7 +38,7 @@ block content
                             i.icon-graph.success.font-large-2.float-left
                           .media-body.text-right
                             h3(style=("font-size:x-large; color:lime"))= '+' + parseFloat(perqindjaPostimeve).toFixed(2) + '%'
-                            span(style=("font-size:19px")) Përqindja e regjistrimeve të veturave në 24 orë
+                            span(style=("font-size:19px")) Përqindja e regjistrimeve të veturave në 24 orët e fundit
               if perqindjaPostimeve < 0
                 .col-xl-3.col-sm-6.col-12
                   .card
@@ -48,7 +49,7 @@ block content
                             i.icon-graph.danger.font-large-2.float-left
                           .media-body.text-right
                             h3(style=("font-size:x-large; color:red"))= '-' + parseFloat(perqindjaPostimeve).toFixed(2) + '%'
-                            span(style=("font-size:19px")) Përqindja e postimeve të veturave në 24 orë
+                            span(style=("font-size:19px")) Përqindja e postimeve të veturave në 24 orët e fundit
                             
               .col-xl-3.col-sm-6.col-12
                 .card
@@ -138,7 +139,7 @@ block content
                             i.icon-graph.warning.font-large-2.float-left
                           .media-body.text-right
                             h3(style=("font-size:x-large; color:red"))= '-' + perqindjaKompanive.toFixed(2) + '%'
-                            span(style=("font-size:19px")) Përqindja e regjistrimeve të kompanive në 24h orë
+                            span(style=("font-size:19px")) Përqindja e regjistrimeve të kompanive në 24h orët e fundit
               else if perqindjaKompanive > 0
                 .col-xl-3.col-sm-6.col-12
                   .card
@@ -149,7 +150,7 @@ block content
                             i.icon-graph.success.font-large-2.float-left
                           .media-body.text-right
                             h3(style=("font-size:x-large; color:lime"))= '+' + perqindjaKompanive.toFixed(2) + '%'
-                            span(style=("font-size:19px")) Përqindja e regjistrimeve të kompanive në 24h orë
+                            span(style=("font-size:19px")) Përqindja e regjistrimeve të kompanive në 24h orët e fundit
               .col-xl-3.col-sm-6.col-12
                 .card
                   .card-content
@@ -177,59 +178,59 @@ block content
               //-         .progress.mt-1.mb-0(style='height: 7px;')
               //-           .progress-bar.bg-danger(role='progressbar' style='width: 40%' aria-valuenow='40' aria-valuemin='0' aria-valuemax='100')
 
-          section#stats-subtitle
-            .row
-              .col-12.mt-3.mb-1
-                h4.text-uppercase Statistics With Subtitle
-                p Statistics on minimal cards with Title &amp; Sub Title.
-            .row
-              .col-xl-6.col-md-12
-                .card.overflow-hidden
-                  .card-content
-                    .card-body.cleartfix
-                      .media.align-items-stretch
-                        .align-self-center
-                          i.icon-pencil.primary.font-large-2.mr-2
-                        .media-body
-                          h4 Total Posts
-                          span Monthly blog posts
-                        .align-self-center
-                          h1 18,000
-              .col-xl-6.col-md-12
-                .card
-                  .card-content
-                    .card-body.cleartfix
-                      .media.align-items-stretch
-                        .align-self-center
-                          i.icon-speech.warning.font-large-2.mr-2
-                        .media-body
-                          h4 Total Comments
-                          span Monthly blog comments
-                        .align-self-center
-                          h1 84,695
-            .row
-              .col-xl-6.col-md-12
-                .card
-                  .card-content
-                    .card-body.cleartfix
-                      .media.align-items-stretch
-                        .align-self-center
-                          h1.mr-2 $76,456.00
-                        .media-body
-                          h4 Total Sales
-                          span Monthly Sales Amount
-                        .align-self-center
-                          i.icon-heart.danger.font-large-2
-              .col-xl-6.col-md-12
-                .card
-                  .card-content
-                    .card-body.cleartfix
-                      .media.align-items-stretch
-                        .align-self-center
-                          h1.mr-2 $36,000.00
-                        .media-body
-                          h4 Total Cost
-                          span Monthly Cost
-                        .align-self-center
-                          i.icon-wallet.success.font-large-2
+          //- section#stats-subtitle
+          //-   .row
+          //-     .col-12.mt-3.mb-1
+          //-       h4.text-uppercase Statistics With Subtitle
+          //-       p Statistics on minimal cards with Title &amp; Sub Title.
+          //-   .row
+          //-     .col-xl-6.col-md-12
+          //-       .card.overflow-hidden
+          //-         .card-content
+          //-           .card-body.cleartfix
+          //-             .media.align-items-stretch
+          //-               .align-self-center
+          //-                 i.icon-pencil.primary.font-large-2.mr-2
+          //-               .media-body
+          //-                 h4 Total Posts
+          //-                 span Monthly blog posts
+          //-               .align-self-center
+          //-                 h1 18,000
+          //-     .col-xl-6.col-md-12
+          //-       .card
+          //-         .card-content
+          //-           .card-body.cleartfix
+          //-             .media.align-items-stretch
+          //-               .align-self-center
+          //-                 i.icon-speech.warning.font-large-2.mr-2
+          //-               .media-body
+          //-                 h4 Total Comments
+          //-                 span Monthly blog comments
+          //-               .align-self-center
+          //-                 h1 84,695
+          //-   .row
+          //-     .col-xl-6.col-md-12
+          //-       .card
+          //-         .card-content
+          //-           .card-body.cleartfix
+          //-             .media.align-items-stretch
+          //-               .align-self-center
+          //-                 h1.mr-2 $76,456.00
+          //-               .media-body
+          //-                 h4 Total Sales
+          //-                 span Monthly Sales Amount
+          //-               .align-self-center
+          //-                 i.icon-heart.danger.font-large-2
+          //-     .col-xl-6.col-md-12
+          //-       .card
+          //-         .card-content
+          //-           .card-body.cleartfix
+          //-             .media.align-items-stretch
+          //-               .align-self-center
+          //-                 h1.mr-2 $36,000.00
+          //-               .media-body
+          //-                 h4 Total Cost
+          //-                 span Monthly Cost
+          //-               .align-self-center
+          //-                 i.icon-wallet.success.font-large-2
         

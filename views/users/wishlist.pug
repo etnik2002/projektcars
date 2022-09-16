@@ -1,4 +1,19 @@
 extends ../layout
 block content
-    each u in user 
-        h1= u.username + "'s Wishlist"
+
+    br
+    .container 
+        a(href="/products")
+            button(class="btn btn-warning" ) Kthehu pas
+
+
+    .container
+        each u in user 
+            if u.wishlistId
+                h1= u.username + "'s Wishlist"
+                br
+                a(href="/products/"+u.wishlistId class="alert alert-danger") Vizito veturën që keni në wishlist
+            else 
+                br
+                a(href="/products/" class="alert alert-danger") Nuk keni asnjë veturë në wishlist! 
+       

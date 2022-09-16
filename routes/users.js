@@ -70,9 +70,9 @@ router.get('/userCompany', kerkohetIdentifikimi, getUserCompany);
 
 router.post('/deleteCompany/:id', postDeleteCompany);
 
-router.get('/wishlist', getWishlist);
+router.get('/wishlist', kerkohetIdentifikimi, getWishlist);
 
-router.post('/wishlist/:id', postWishlist);
+router.post('/wishlist/:id', kerkohetIdentifikimi, postWishlist);
 
 router.get('/adminDashboard', isAdmin, getAdminDashboard);
 

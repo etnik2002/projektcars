@@ -20,7 +20,6 @@ lidhuMeDb();
 const userRoutes = require('./routes/users.js');
 const categoryRoutes = require('./routes/categories');
 const productRoutes = require('./routes/products');
-const StripeRoutes = require('./routes/stripe');
 const reklamaRoutes = require('./routes/reklamo');
 const { kerkohetIdentifikimi, isAdmin } = require('./middleware/auth');
 // const { dashboard } = require('./controllers/User-Controller');
@@ -89,9 +88,9 @@ app.get('/mk', (req, res) => {
   // res.render('mk');
 });
 
-// app.get('/dashboard', (req, res) => {
-//   res.render('admin');
-// });
+app.get('/dashboard', (req, res) => {
+  res.render('admin');
+});
 
 app.get('/adminat', (req, res) => {
   res.render('admin');

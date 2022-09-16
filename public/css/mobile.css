@@ -92,25 +92,31 @@
     width: 60%;
   }
   .single-prod-card {
-    width: 400%;
+    display: block;
     margin: 5px;
     padding: 10px;
     position: relative;
-    left: 20%;
+    font-size: xx-large;
   }
   .single-prod-card img {
     max-width: 100%;
     height: 200px;
   }
+
+  .single-prod-card h3 {
+    font-size: xx-large;
+    width: 320px;
+  }
   .board {
-    display: flex;
-    width: 80%;
-    height: 35%;
-    left: 9%;
+    display: block;
+    width: 100%;
+    left: 250%;
+    bottom: 360px;
     position: relative;
   }
-  .board cell {
-    background-color: red;
+  .board .cell {
+    width: 100%;
+    height: 60px;
   }
   .nav-menu {
     display: flex;
@@ -148,7 +154,7 @@
     width: 35%;
     margin: 0 auto;
     justify-content: space-between;
-    display: block;
+    display: flex;
   }
   .user-products-list img {
     width: 100%;
@@ -173,10 +179,10 @@
   /* single product page */
 
   .product-wrapper {
-    display: block;
+    display: flex;
     position: relative;
-    width: 480px;
-    left: 13%;
+    width: 200%;
+    left: -28%;
     margin: 0 auto;
   }
   h4.shitesi {
@@ -317,6 +323,12 @@
   .container-profile {
     margin: 20px;
     display: flex;
+  }
+  .counter {
+    display: flex;
+    margin: 0 auto;
+    position: relative;
+    left: 68%;
   }
   .container-top {
     text-align: center;
@@ -459,5 +471,69 @@
   .foto-falas img {
     display: block;
     border-radius: 20px;
+  }
+  section.login {
+    display: block;
+    margin: 0 auto;
+    position: relative;
+    width: 480px;
+    left: 500px;
+    height: 1000px;
+  }
+  .login_box {
+    height: 70%;
+    width: 100%;
+    float: left;
+  }
+  .navbar-full {
+    width: 200%;
+  }
+  .container.containerProfile {
+    width: 100%;
+  }
+  .container.containerProfile.singleProd {
+    width: 200%;
+  }
+  .mfp-bg .mfp-ready {
+    width: 200%;
+  }
+  #ndryshoBtn {
+    font-size: 16px;
+    width: 100%;
+    height: 20%;
+  }
+  .container-home {
+    display: none;
+  }
+  .style-four {
+    width: 200%;
+  }
+  .most-visited {
+    list-style-type: none;
+    text-decoration: none;
+    border: none;
+  }
+  .container.containerProfile img {
+    width: 12%;
+    position: relative;
+    margin: 0 auto;
+    display: flex;
+    margin-top: 20px;
+  }
+  .container.containerProfile a {
+    font-size: xx-large;
+  }
+  .login {
+    float: left;
+    margin: 0 auto;
+    display: flex;
+    right: 50%;
+    width: 100%;
+  }
+  section.login {
+    position: relative;
+    left: 10%;
+    border-radius: 20px;
+    width: 180%;
   }
 }

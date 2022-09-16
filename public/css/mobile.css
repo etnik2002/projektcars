@@ -107,6 +107,7 @@
     font-size: xx-large;
     width: 320px;
   }
+
   .board {
     display: block;
     width: 100%;
@@ -182,7 +183,6 @@
     display: flex;
     position: relative;
     width: 200%;
-    left: -28%;
     margin: 0 auto;
   }
   h4.shitesi {

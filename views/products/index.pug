@@ -9,7 +9,7 @@ block content
         if allProducts.length > 0
             .product-wrapper.flex-col
                 each e in allProducts 
-                    .single-prod-card 
+                    .single-prod-card.index 
                         a(href="/products/"+e._id)     
                             h3.product-name=e.name
                         a(href="/products/"+e._id)

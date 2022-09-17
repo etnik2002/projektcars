@@ -1105,10 +1105,17 @@ nav {
   list-style-type: none;
   text-decoration: none;
 }
+.dataSot {
+  color: black;
+  font-size: x-large;
+  text-align: center;
+  margin-top: 20px;
+}
 .menu-text {
   position: sticky;
   top: 0px;
   color: white;
+  font-size: 30px;
 }
 .menu-text:hover {
   color: lime;

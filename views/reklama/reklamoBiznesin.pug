@@ -1,11 +1,11 @@
 extends ../layout
 block content 
     body.create-company-body
-        div(class="container" )
+        div.container.allProdsAdmin 
             h3(class="alert alert-success") Këtu mund të reklamoni firmën tuaj, mbushni të dhënat e nevojshme per të shfaqur firmën tuaj në faqen tonë!
             h3(class="alert alert-warning") Nëse kompania juaj ka nevojë për një Ueb sajt, na kontaktoni neve dhe ne do ta bëjmë të mundur që kompania juaj të pajiset me një Ueb sajt.Na kontakt në email : automk.info@gmail.com ose Nr. Tel : +389 76 224 065
             hr
-        div(class="container" id="container") 
+        div.container.allProdsAdmin 
             #form-wrapper.create 
                 form(action="/reklamo/biznes", method="post" enctype="multipart/form-data") 
                     #form-elem

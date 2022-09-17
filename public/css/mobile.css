@@ -569,7 +569,6 @@
     border-radius: 20px;
     display: flex;
     position: relative;
-    left: 50%;
   }
   .mfp-bg .mfp-ready {
     width: 200%;

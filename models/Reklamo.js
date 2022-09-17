@@ -17,7 +17,7 @@ const reklamaSchema = mongoose.Schema(
       ref: 'User',
       required: true,
     },
-    owner: {
+    ownerName: {
       type: String,
     },
     ownerPhone: {

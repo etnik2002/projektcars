@@ -68,7 +68,7 @@ module.exports = {
         businessName: req.body.businessName,
         businessCategory: req.body.businessCategory,
         User: req.user._id,
-        owner: req.user.username,
+        ownerName: req.body.ownerName,
         ownerPhone: req.body.ownerPhone,
         businessPhone: req.body.businessPhone,
         businessEmail: req.body.businessEmail,

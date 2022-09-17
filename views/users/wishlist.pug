@@ -2,12 +2,12 @@ extends ../layout
 block content
 
     br
-    .container 
+    .container.allProdsAdmin 
         a(href="/products")
             button(class="btn btn-warning" ) Kthehu pas
 
 
-    .container
+    .container.allProdsAdmin
         each u in user 
             if u.wishlistId
                 h1= u.username + "'s Wishlist"

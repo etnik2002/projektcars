@@ -1,11 +1,11 @@
 extends ../layout 
 block content 
-    .container-top 
+    .container-top.profile 
         .container.containerProfile.profileDiv
             .main-body
               .row
                 .col-lg-4
-                  .card
+                  .card.profile
                     .card-body
                       .d-flex.flex-column.align-items-center.text-center
                         if user.userRole == 'admin'
@@ -17,35 +17,35 @@ block content
                             br
                             br
                             .menaxho-produktet 
-                              a(href="/users/userCompany" class="alert alert-info") Kompanitë e reklamuara
+                              a(href="/users/userCompany" class="alert alert-info" id="alertProfile") Kompanitë e reklamuara
                           br
                           br
                           if user.userRole == 'admin'
                             .krijo-kategori 
-                              a(href="/categories/create" class="alert alert-info" disabled) Shto një markë të re
+                              a(href="/categories/create" class="alert alert-info" id="alertProfile" disabled) Shto një markë të re
                             br
                             br
                             .menaxho-produktet 
-                              a(href="/categories" class="alert alert-danger") Menaxho markat e veturave 
+                              a(href="/categories" class="alert alert-danger" id="alertProfile") Menaxho markat e veturave 
                             br
                             br
                             .menaxho-produktet 
-                              a(href="/products/all" class="alert alert-danger") Menaxho të gjitha postimet  
+                              a(href="/products/all" class="alert alert-danger" id="alertProfile") Menaxho të gjitha postimet  
                             br
                             br 
                             .menaxho-produktet 
-                              a(href="/users/allUsers" class="alert alert-danger") Menaxho të gjith përdoruesit 
+                              a(href="/users/allUsers" class="alert alert-danger" id="alertProfile") Menaxho të gjith përdoruesit 
                             br
                             br
                             .menaxho-produktet 
-                              a(href="/users/adminDashboard" class="alert alert-success") Admin dashboard
+                              a(href="/users/adminDashboard" class="alert alert-success" id="alertProfile") Admin dashboard
                             br
                             br
                             //- .menaxho-produktet 
                             //-   a(href="/users/userCompany" class="alert alert-warning") Kompanitë tuaja 
                             br
                             br
-                        a(href="/users/wishlist" class="badge badge-primary" style=("margin-bottom:5px")) Wishlist
+                        a(href="/users/wishlist" class="badge badge-primary" id="wishlistBadge" style=("margin-bottom:5px")) My Wishlist
 
 
 
@@ -108,7 +108,7 @@ block content
             span(class="")= userProd.length
         if userProd.length > 0
 
-            .container.containerProfile
+            .container.containerProfile(id="productsTableProfile")
                 if userProd.length > 0
                     each e in userProd 
                         .table-responsive

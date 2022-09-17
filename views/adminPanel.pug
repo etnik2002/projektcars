@@ -7,7 +7,7 @@ block content
         link(rel='stylesheet' type='text/css' href='https://pixinvent.com/stack-responsive-bootstrap-4-admin-template/app-assets/css/bootstrap.min.css')
         link(href='https://fonts.googleapis.com/css?family=Montserrat&display=swap' rel='stylesheet')
         
-        h2.dataSot(style=("font-size:x-large; text-align:center; margin-top:20px"))= DATA
+        h2.dataSot= DATA
 
         .grey-bg.container-fluid
           section#minimal-statistics
@@ -50,6 +50,7 @@ block content
                           .media-body.text-right
                             h3(style=("font-size:x-large; color:red"))= '-' + parseFloat(perqindjaPostimeve).toFixed(2) + '%'
                             span(style=("font-size:19px")) Përqindja e postimeve të veturave në 24 orët e fundit
+
                             
               .col-xl-3.col-sm-6.col-12
                 .card
@@ -85,7 +86,6 @@ block content
           h2 Përdoruesit dhe Adminat
             hr
             .row
-
               .col-xl-3.col-sm-6.col-12
                 .card
                   .card-content
@@ -138,7 +138,7 @@ block content
                           .align-self-center
                             i.icon-graph.warning.font-large-2.float-left
                           .media-body.text-right
-                            h3(style=("font-size:x-large; color:red"))= '-' + perqindjaKompanive.toFixed(2) + '%'
+                            h3(style=("font-size:x-large; color:red"))= '-' + parseFloat(perqindjaKompanive).toFixed(2) + '%'
                             span(style=("font-size:19px")) Përqindja e regjistrimeve të kompanive në 24h orët e fundit
               else if perqindjaKompanive > 0
                 .col-xl-3.col-sm-6.col-12
@@ -149,7 +149,7 @@ block content
                           .align-self-center
                             i.icon-graph.success.font-large-2.float-left
                           .media-body.text-right
-                            h3(style=("font-size:x-large; color:lime"))= '+' + perqindjaKompanive.toFixed(2) + '%'
+                            h3(style=("font-size:x-large; color:lime"))= '+' + parseFloat(perqindjaKompanive).toFixed(2) + '%'
                             span(style=("font-size:19px")) Përqindja e regjistrimeve të kompanive në 24h orët e fundit
               .col-xl-3.col-sm-6.col-12
                 .card

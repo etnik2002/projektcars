@@ -96,8 +96,9 @@
   .single-prod-card {
     display: block;
     position: relative;
-    font-size: xx-large;
-    margin: 0 auto;
+    font-size: x-large;
+    width: 60%;
+    right: 10%;
   }
   .single-prod-card img {
     max-width: 100%;

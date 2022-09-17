@@ -2,10 +2,10 @@ extends ../layout
 block content 
     body.create-product-body
         h2= title
-        div(class="container" )
+        div.container.allProdsAdmin 
             h3(class="alert alert-danger") Nese produkti qe do ngarkoni nuk i perket kategorise VETURE atehere do te fshihet nga faqja. Me rrespekt stafi i AutoMK!
             hr
-        div(class="container" id="container") 
+        div.container.allProdsAdmin( id="container") 
             #form-wrapper.create 
                 form(action="/products/create", method="post" enctype="multipart/form-data" id="create-product-form" class="create-product-form") 
                     #form-elem

@@ -452,7 +452,7 @@
   img.rounded-circle.p-1.bg-primary {
     position: relative;
     display: flex;
-    left: 18%;
+    left: 1%;
     justify-content: center;
     align-items: center;
     text-align: center;

@@ -2,9 +2,9 @@ extends ../layout
 block content 
     
     h2.admin Admin dashboard - Krijo një markë të re!
-    .container
+    .container.categories
         .form-wrapper.create 
-            form(action="/categories/create", method="post" enctype="multipart/form-data") 
+            form(action="/categories/create", method="post" enctype="multipart/form-data" ) 
                 .form-elem.create 
                     label(for="catName") Emri i markës së veturës
                     br

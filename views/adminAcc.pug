@@ -1,10 +1,10 @@
 extends layout 
 block content
     br
-    .container 
+    .container.allProdsAdmin 
         button(class='btn btn-warning')
             a(href="/users/adminDashboard" style=('color:white')) Kthehu pas
-    .container 
+    .container.allProdsAdmin 
         h3 Adminat : #{ADMINAT.length}
         each adm,i in ADMINAT 
             .table-responsive 

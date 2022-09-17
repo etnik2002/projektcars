@@ -98,7 +98,7 @@
     position: relative;
     font-size: x-large;
     width: 60%;
-    right: 10%;
+    right: 15%;
   }
   .single-prod-card img {
     max-width: 100%;
@@ -114,11 +114,18 @@
     display: block;
     width: 100%;
     position: relative;
-    left: 38%;
+    left: 55%;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
   }
   .board .cell {
-    width: 100%;
+    width: 200%;
     height: 60px;
+    margin-bottom: 5px;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
   }
   .nav-menu {
     display: flex;
@@ -352,6 +359,9 @@
   }
   p4.emaili {
     color: blue;
+  }
+  h3.tel {
+    color: green;
   }
   h4.tel {
     color: black;

@@ -14,15 +14,16 @@ block content
                             h3.product-name=e.name
                         a(href="/products/"+e._id)
                             img(src="/images/products/"+e.image[0], alt=e.name) 
-                        h4.data= 'Data e postimit : ' + e.DATA
+                        //- h4.data= 'Data e postimit : ' + e.DATA
                         h4.price Cmimi : #{e.price} €
                         h4.shitesi Shitesi : #{e.seller}
                         h4.tel Tel : #{e.phone} 
                         h4.location= 'Lokacioni : ' + e.location
                         //- h3 Kategoria : #{e.category}
-
+                        form(action="/users/wishlist/"+e._id method="POST")
+                            button(type="submit" name="wishlistId" class="btn btn-success") Shto në Wishlist
                         
-                        
+                        hr
         else 
             h3.zero-produkte Nuk ka asnje produkt. Behu i pari qe do te shtoj nje produkt!   
                 a(href="/products/create") Kliko ketu per te shtuar nje produkt! 

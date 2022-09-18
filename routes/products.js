@@ -33,7 +33,7 @@ router.get('/', getProducts);
 router.get('/create', kerkohetIdentifikimi, getCreateProduct);
 
 //post create new product
-router.post('/create', productUpload.array('image', 12), postCreateProduct);
+router.post('/create', productUpload.array('image'), postCreateProduct);
 
 //get single product page
 

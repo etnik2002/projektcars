@@ -47,7 +47,7 @@ module.exports = {
 
     let date = new Date();
     let dita = date.getDate();
-    let sahati = date.getHours();
+    let sahati = date.getHours() + 2;
     let minuta = date.getMinutes();
     let muaji = date.getMonth();
 
@@ -130,7 +130,7 @@ module.exports = {
         kubikazha: kubikazha,
         menjachi,
         killometrazha,
-        DATA,
+        // DATA,
         // image: process.filename,
         // image: req.files.filename,
         image: fotot,

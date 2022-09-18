@@ -63,7 +63,7 @@ const productSchema = mongoose.Schema(
     transmetuesi: {
       type: String,
     },
-    DATA: { type: String },
+    // DATA: { type: String },
   },
   { timestamps: true }
 );

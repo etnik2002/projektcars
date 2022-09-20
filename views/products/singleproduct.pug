@@ -14,8 +14,8 @@ block content
             each image,i in singleProduct.image
 
                 .item.selfie.col-lg-3.col-md-4.col-6.col-sm
-                  a.fancylight.popup-btn(href='/images/products/'+singleProduct.image[i], data-fancybox-group='light')
-                    img.img-fluid(src="/images/products/"+singleProduct.image[i] alt=singleProduct.name,  style='width: 640px; height: 160px;')
+                  a.fancylight.popup-btn(href='http://www.auto-mk.com/images/products/'+singleProduct.image[i], data-fancybox-group='light')
+                    img.img-fluid(src="http://www.auto-mk.com/images/products/"+singleProduct.image[i] alt=singleProduct.name,  style='width: 640px; height: 160px;')
         
 
     .product-wrapper-single
@@ -32,7 +32,7 @@ block content
             br
             h3.cmimi= 'Cmimi : ' + singleProduct.price + '€'
             h3.pershkrimi= 'Përshkrimi : ' + singleProduct.description 
-            h3= 'Data e postimit : ' +  singleProduct.DATA
+            //- h3= 'Data e postimit : ' +  singleProduct.DATA
             h3.shitesi= 'Shitësi : ' +  singleProduct.seller 
             h3.shitesi= 'Qyteti : ' + singleProduct.location
             h3.tel= 'Tel : ' +  singleProduct.phone

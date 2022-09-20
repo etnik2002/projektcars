@@ -18,4 +18,11 @@ module.exports = {
       res.redirect('/users/login');
     }
   },
+  isCeo: (req, res, next) => {
+    if (req.isAuthenticated() && req.user.userRole === 'ceo') {
+      return next();
+    } else {
+      res.redirect('/?ceo=false');
+    }
+  },
 };

@@ -130,7 +130,7 @@ module.exports = {
         kubikazha: kubikazha,
         menjachi,
         killometrazha,
-        // DATA,
+        DATA,
         // image: process.filename,
         // image: req.files.filename,
         image: fotot,

@@ -9,10 +9,14 @@ require('dotenv').config();
 //importojm routes
 const PORT = process.env.PORT;
 
+const mongoose = require('mongoose');
+
 const fs = require('fs');
 
 const Product = require('./models/Product');
 const Reklama = require('./models/Reklamo');
+const Category = require('./models/Category');
+
 //import and connect to database
 const lidhuMeDb = require('./db');
 lidhuMeDb();
@@ -74,6 +78,17 @@ app.get('/', async (req, res) => {
 
 app.get('/html', (req, res) => {
   res.sendFile(__dirname + '/views/index.html');
+});
+
+app.get('/:id', async (req, res) => {
+  try {
+    const catId = await Category.findById(req.params.id).lean();
+    const prodCat = await Product.find({ category: catId }).lean();
+    console.log({ prodCat });
+    res.render('categories/llojiZgjedhur', { catId, prodCat });
+  } catch (error) {
+    console.log(error);
+  }
 });
 
 app.post('getProds', (req, res) => {

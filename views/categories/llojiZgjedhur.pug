@@ -1,0 +1,34 @@
+extends ../layout 
+block content 
+    //- link(rel='stylesheet' type='text/css' href='https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css')
+    //- link(rel='stylesheet' type='text/css' href='https://pixinvent.com/stack-responsive-bootstrap-4-admin-template/app-assets/css/bootstrap-extended.min.css')
+    //- link(rel='stylesheet' type='text/css' href='https://pixinvent.com/stack-responsive-bootstrap-4-admin-template/app-assets/fonts/simple-line-icons/style.min.css')
+    //- link(rel='stylesheet' type='text/css' href='https://pixinvent.com/stack-responsive-bootstrap-4-admin-template/app-assets/css/colors.min.css')
+    //- link(rel='stylesheet' type='text/css' href='https://pixinvent.com/stack-responsive-bootstrap-4-admin-template/app-assets/css/bootstrap.min.css')
+    //- link(href='https://fonts.googleapis.com/css?family=Montserrat&display=swap' rel='stylesheet')
+    h1(style="text-align:center") Marka e zgjedhur : #{catId.catName}    
+        .product-wrapper.flex-col
+            each e in prodCat
+                .single-prod-card.index 
+                    a(href="/products/"+e._id)     
+                        h3.product-name=e.name
+                    a(href="/products/"+e._id)
+                        img(src="/images/products/"+e.image[0], alt=e.name) 
+                    //- h4.data= 'Data e postimit : ' + e.DATA
+                    h4.price Cmimi : #{e.price} €
+                    h4.shitesi Shitesi : #{e.seller}
+                    h4.tel Tel : #{e.phone} 
+                    h4.location= 'Lokacioni : ' + e.location
+                    //- h3 Kategoria : #{e.category}
+                    form(action="/users/wishlist/"+e._id method="POST")
+                        button(type="submit" name="wishlistId" class="btn btn-success") Shto në Wishlist
+                    
+                    hr
+        if prodCat.length <= 0 
+            .container
+                h1 Asnje veture nuk i perket markes #{catId.catName}. Behu i pari qe te shtosh nje veture te markes #{catId.catName}.    
+                    a(href="/products/create") Kliko ketu per te shtuar veturen tuaj! 
+                a(href="/") Ose kliko ketu per tu kthyer pas 
+    
+        
+        

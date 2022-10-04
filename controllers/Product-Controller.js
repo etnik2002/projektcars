@@ -5,6 +5,7 @@ const Category = require('../models/Category');
 const Product = require('../models/Product');
 const { Query } = require('mongoose');
 const Reklama = require('../models/Reklamo');
+const mongoose = require('mongoose');
 
 module.exports = {
   getProducts: async (req, res) => {
@@ -108,12 +109,13 @@ module.exports = {
       killometrazha,
       hp,
     } = req.body;
-    console.log(req.files);
+    console.log(req.files, 323);
     try {
       const fotot = [];
       req.files.forEach((x) => {
         fotot.push(x.filename);
       });
+      console.log({ fotot });
 
       const categories = await Category.find({}).lean();
 
@@ -157,7 +159,7 @@ module.exports = {
   getSingleProduct: async (req, res) => {
     console.log('Product ID : ' + req.params.id);
     const singleProduct = await Product.findById({ _id: req.params.id });
-    console.log(singleProduct);
+    console.log({ singleProduct });
     res.render('products/singleproduct', { singleProduct });
   },
 
@@ -270,6 +272,7 @@ module.exports = {
       res.redirect('users/profile?deleted=JO');
     }
   },
+
   searchedProducts: async (req, res) => {
     let query = req.query.search;
     console.log({ query });

@@ -55,4 +55,15 @@ module.exports = {
       res.redirect('/category?deleted=JO');
     }
   },
+  getProdCat: async (req, res) => {
+    try {
+      const catId = await Category.findById(req.params.id).lean();
+      const prodCat = await Product.find({ category: catId }).lean();
+      const categories = await Category.find({}).lean();
+
+      res.render('categories/llojiZgjedhur', { catId, prodCat, categories });
+    } catch (error) {
+      console.log(error);
+    }
+  },
 };
